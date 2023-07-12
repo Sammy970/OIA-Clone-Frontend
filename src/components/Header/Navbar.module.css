@@ -14,6 +14,13 @@
   width: 90%;
 }
 
+.logoAndLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
 .navbar .image {
   display: flex;
   align-items: center;

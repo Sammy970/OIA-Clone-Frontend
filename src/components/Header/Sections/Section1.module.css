@@ -1,0 +1,28 @@
+/* Your Shortcut to Easy Sharing and Snappy URLs! */
+
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+}
+
+.section1 h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+
+  color: #000000;
+}
+
+@media (max-width: 425px) {
+  .section1 h3 {
+    text-align: left;
+  }
+  .section1 {
+    width: 75%;
+  }
+}

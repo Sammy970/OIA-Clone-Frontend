@@ -19,17 +19,19 @@ const Navbar = () => {
   return (
     <div className={classes.navbar}>
       <nav className={classes.innerNavbar}>
-        <div className={classes.image}>
-          <img
-            src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png"
-            alt=""
-            width={40}
-          />
-        </div>
-        <div className={classes.links}>
-          <li>Test 2</li>
-          <li>Test 2</li>
-          <li>Test 2</li>
+        <div className={classes.logoAndLinks}>
+          <div className={classes.image}>
+            <img
+              src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png"
+              alt=""
+              width={40}
+            />
+          </div>
+          <div className={classes.links}>
+            <li>Test 2</li>
+            <li>Test 2</li>
+            <li>Test 2</li>
+          </div>
         </div>
         <div className={classes.action}>
           <img

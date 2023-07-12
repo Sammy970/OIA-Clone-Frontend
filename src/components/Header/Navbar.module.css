@@ -11,7 +11,7 @@
 .innerNavbar {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 70%;
 }
 
 .logoAndLinks {
@@ -25,6 +25,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
+}
+
+.navbar .image h2 {
+  font-weight: 700;
+  font-size: 30px;
+  font-style: italic;
 }
 
 .navbar .links {

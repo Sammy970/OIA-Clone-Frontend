@@ -72,4 +72,7 @@ li {
     justify-content: center;
     align-items: center;
   }
+  .innerNavbar {
+    width: 90%;
+  }
 }

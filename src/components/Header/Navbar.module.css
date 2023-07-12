@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  position: sticky;
+  height: 4rem;
+  padding-top: 40px;
+}
+
+.innerNavbar {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.navbar .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: #0f0f0f;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar .action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .action button {
+  color: aliceblue;
+}
+
+.navbar .ham {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar .links,
+  .navbar .action {
+    display: none;
+  }
+
+  .navbar .ham {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -22,32 +22,35 @@ const Navbar = () => {
         <div className={classes.logoAndLinks}>
           <div className={classes.image}>
             <img
-              src="https://uwm.edu/r2d2/wp-content/uploads/sites/438/2020/05/external-link-icon-pnga3d-481d-9eda-8e9eab858bae.png"
+              src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png"
               alt=""
               width={40}
             />
             <h2>link-कर</h2>
           </div>
           <div className={classes.links}>
-            <li>Test 2</li>
-            <li>Test 2</li>
-            <li>Test 2</li>
+            <li>Dashboard</li>
+            <li>About</li>
           </div>
         </div>
         <div className={classes.action}>
           <img
-            src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png"
+            src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
             alt=""
             width={40}
           />
           <button>Logout</button>
         </div>
         <div className={classes.ham}>
-          <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+          <Button
+            ref={btnRef}
+            onClick={onOpen}
+            className={classes.hamburgerBtn}
+          >
             <img
-              src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-126-453141.png"
+              src="https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg"
               alt=""
-              width={30}
+              width={40}
             />
           </Button>
           <Drawer
@@ -60,11 +63,9 @@ const Navbar = () => {
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader>Menu</DrawerHeader>
-
               <DrawerBody>
-                <p>Test 2</p>
-                <p>Test 2</p>
-                <p>Test 2</p>
+                <p className={classes.hamburgerOptions}>Dashboard</p>
+                <p className={classes.hamburgerOptions}>About</p>
               </DrawerBody>
             </DrawerContent>
           </Drawer>

@@ -3,3 +3,18 @@
   background-color: #ffc91f;
   min-height: 100vh;
 }
+
+@font-face {
+  font-family: circular-std-bold;
+  src: url("./headingFont.ttf");
+}
+
+@font-face {
+  font-family: circular-std-light;
+  src: url("./CircularStd-Light.otf");
+}
+
+@font-face {
+  font-family: circular-std-medium;
+  src: url("./CircularStd-Medium.otf");
+}

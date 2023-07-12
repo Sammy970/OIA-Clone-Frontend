@@ -31,7 +31,8 @@
 .navbar .image h2 {
   font-weight: 700;
   font-size: 30px;
-  font-style: italic;
+  /* font-style: italic; */
+  font-family: circular-std-bold;
 }
 
 .navbar .links {
@@ -42,8 +43,10 @@
   color: #0f0f0f;
 }
 
-li {
+.navbar .links li {
   list-style: none;
+  font-family: circular-std-medium;
+  font-size: 20px;
 }
 
 .navbar .action {
@@ -54,11 +57,28 @@ li {
 }
 
 .navbar .action button {
-  color: aliceblue;
+  background-color: #0f0f02;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  color: #ffffff;
 }
 
 .navbar .ham {
   display: none;
+}
+
+.navbar .ham .hamburgerBtn {
+  background-color: black;
+}
+
+.hamburgerOptions {
+  padding: 20px;
+  background-color: #0f0f0e;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 @media (max-width: 768px) {

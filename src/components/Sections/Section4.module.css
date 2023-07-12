@@ -1,0 +1,21 @@
+.section4 {
+  margin-top: 50px;
+  padding-bottom: 40px;
+}
+
+.section4 .title {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 36px;
+  font-weight: 600;
+  color: #0f0f0f;
+  font-family: circular-std-bold;
+}
+
+.section4 .card {
+  background-color: #0f0f0e;
+}
+
+.text {
+  color: white;
+}

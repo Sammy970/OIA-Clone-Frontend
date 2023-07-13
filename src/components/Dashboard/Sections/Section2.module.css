@@ -1,0 +1,9 @@
+.section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2 h2 {
+  text-align: start;
+}

@@ -1,9 +1,15 @@
 import React from "react";
+import Section1 from "./Sections/Section1";
+import { Container } from "@chakra-ui/react";
+import Section2 from "./Sections/Section2";
 
 const Dashboard = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <Container maxW={"1010px"} background="coral" mt={10}>
+        <Section1 />
+        <Section2 />
+      </Container>
     </>
   );
 };

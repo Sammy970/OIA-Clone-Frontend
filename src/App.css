@@ -3,7 +3,6 @@
   background-color: #ffc91f;
   min-height: 100vh;
 }
-
 @font-face {
   font-family: circular-std-bold;
   src: url("./headingFont.ttf");

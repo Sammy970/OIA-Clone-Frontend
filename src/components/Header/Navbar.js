@@ -24,7 +24,7 @@ const Navbar = () => {
             <img
               src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png"
               alt=""
-              width={40}
+              width={34}
             />
             <h2>link-कर</h2>
           </div>

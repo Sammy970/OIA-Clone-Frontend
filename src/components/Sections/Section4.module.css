@@ -12,10 +12,16 @@
   font-family: circular-std-bold;
 }
 
-.section4 .card {
+.section4 .card1 {
   background-color: #0f0f0e;
 }
+.section4 .card2 {
+  background-color: #ffffff;
+}
 
-.text {
+.text1 {
   color: white;
+}
+.text2 {
+  color: #0f0f02;
 }

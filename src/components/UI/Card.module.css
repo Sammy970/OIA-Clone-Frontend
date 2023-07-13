@@ -1,0 +1,9 @@
+.card1 button {
+    background-color: #ffc91f;
+    padding: 10px 10px;
+    /* width: 16%; */
+    border-radius: 8px;
+    color: #0f0f02;
+    font-size: 19px;
+    font-family: circular-std-medium;
+  }

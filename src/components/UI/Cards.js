@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  Button,
-  Heading,
-  Stack,
-  Image,
-  Divider,
-  Text,
-} from "@chakra-ui/react";
+import { Card, CardBody, Stack, Image, Text } from "@chakra-ui/react";
 import classes from "./Card.module.css";
 
 const Cards = () => {
@@ -24,6 +15,7 @@ const Cards = () => {
             <Image
               src="https://c.saavncdn.com/972/Adipurush-Hindi-2023-20230607184755-500x500.jpg"
               width={100}
+              borderRadius={7}
             />
           </Stack>
           <Text noOfLines={2}>

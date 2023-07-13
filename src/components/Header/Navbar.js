@@ -69,9 +69,11 @@ const Navbar = () => {
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader>Menu</DrawerHeader>
-              <DrawerBody>
-                <p className={classes.hamburgerOptions}>Dashboard</p>
-                <p className={classes.hamburgerOptions}>About</p>
+              <DrawerBody className={classes.actions}>
+                <button className={classes.hamburgerOptions} onClick={onClose}>
+                  <Link to="/dashboard">Dashboard</Link>
+                </button>
+                <button className={classes.hamburgerOptions}>About</button>
               </DrawerBody>
             </DrawerContent>
           </Drawer>

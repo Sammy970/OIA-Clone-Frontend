@@ -12,6 +12,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -26,10 +28,14 @@ const Navbar = () => {
               alt=""
               width={34}
             />
-            <h2>link-कर</h2>
+            <Link to="/">
+              <h2>link-कर</h2>
+            </Link>
           </div>
           <div className={classes.links}>
-            <li>Dashboard</li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
             <li>About</li>
           </div>
         </div>

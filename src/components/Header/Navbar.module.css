@@ -58,6 +58,10 @@
   gap: 10px;
 }
 
+.navbar .action img {
+  border-radius: 50%;
+}
+
 .navbar .action button {
   background-color: #0f0f02;
   padding: 10px 20px 10px 20px;

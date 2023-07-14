@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Navbar.module.css";
 
+// Importing for ChakraUI-React
 import {
   Drawer,
   DrawerBody,
@@ -12,11 +13,23 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+// Importing Auth0
+import { useAuth0 } from "@auth0/auth0-react";
+
+// Importing for React-Router-Dom
 import { Link } from "react-router-dom";
+
+// Importing UI Components
+import LoginButton from "../UI/LoginButton";
+import LogoutButton from "../UI/LogoutButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  const { user, isLoading, isAuthenticated } = useAuth0();
 
   return (
     <div className={classes.navbar}>
@@ -40,12 +53,19 @@ const Navbar = () => {
           </div>
         </div>
         <div className={classes.action}>
-          <img
-            src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
-            alt=""
-            width={40}
-          />
-          <button>Logout</button>
+          {isLoading === false && isAuthenticated === true ? (
+            <img src={user.picture} alt="user" width={50} />
+          ) : (
+            isLoading && (
+              <FontAwesomeIcon
+                icon={faSpinner}
+                spin
+                size="2xl"
+                style={{ color: "#0f0f0e" }}
+              />
+            )
+          )}
+          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </div>
         <div className={classes.ham}>
           <Button

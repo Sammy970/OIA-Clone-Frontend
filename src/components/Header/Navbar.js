@@ -11,6 +11,17 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
+  Stack,
+} from "@chakra-ui/react";
+
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton,
 } from "@chakra-ui/react";
 
 // Importing Auth0
@@ -53,21 +64,37 @@ const Navbar = () => {
           </div>
         </div>
         <div className={classes.action}>
-          {isLoading === false && isAuthenticated === true ? (
-            <img src={user.picture} alt="user" width={50} />
+          {isLoading ? (
+            <FontAwesomeIcon
+              icon={faSpinner}
+              spin
+              size="2xl"
+              style={{ color: "#0f0f0e" }}
+            />
           ) : (
-            isLoading && (
-              <FontAwesomeIcon
-                icon={faSpinner}
-                spin
-                size="2xl"
-                style={{ color: "#0f0f0e" }}
-              />
+            user !== undefined && (
+              <Popover>
+                <PopoverTrigger>
+                  {isLoading === false && isAuthenticated === true && (
+                    <img src={user.picture} alt="user" width={50} />
+                  )}
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader>Hello, {user.name}</PopoverHeader>
+                  <PopoverBody>Email: {user.email}</PopoverBody>
+                </PopoverContent>
+              </Popover>
             )
           )}
+
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </div>
         <div className={classes.ham}>
+          {isLoading === false && isAuthenticated === true && (
+            <img src={user.picture} alt="user" width={50} />
+          )}
           <Button
             ref={btnRef}
             onClick={onOpen}
@@ -90,6 +117,34 @@ const Navbar = () => {
               <DrawerCloseButton />
               <DrawerHeader>Menu</DrawerHeader>
               <DrawerBody className={classes.actions}>
+                <Stack direction={"row"} className={classes.user}>
+                  {isLoading ? (
+                    <FontAwesomeIcon
+                      icon={faSpinner}
+                      spin
+                      size="2xl"
+                      style={{ color: "#0f0f0e" }}
+                    />
+                  ) : (
+                    user !== undefined && (
+                      <Popover>
+                        <PopoverTrigger>
+                          {isLoading === false && isAuthenticated === true && (
+                            <img src={user.picture} alt="user" width={70} />
+                          )}
+                        </PopoverTrigger>
+                        <PopoverContent>
+                          <PopoverArrow />
+                          <PopoverCloseButton />
+                          <PopoverHeader>Hello, {user.name}</PopoverHeader>
+                          <PopoverBody>Email: {user.email}</PopoverBody>
+                        </PopoverContent>
+                      </Popover>
+                    )
+                  )}
+
+                  {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+                </Stack>
                 <button className={classes.hamburgerOptions} onClick={onClose}>
                   <Link to="/dashboard">Dashboard</Link>
                 </button>

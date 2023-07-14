@@ -73,6 +73,11 @@
   display: none;
 }
 
+.navbar .ham img {
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
 .navbar .ham .hamburgerBtn {
   background-color: black;
 }
@@ -92,6 +97,24 @@
   justify-content: flex-start;
   /* align-items: center; */
   flex-direction: column;
+}
+
+.actions .user {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1.2rem;
+}
+
+.actions .user img {
+  border-radius: 50%;
+}
+
+.actions .user button {
+  background-color: #ffc91f;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  color: #0f0f0e;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

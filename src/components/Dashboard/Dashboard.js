@@ -1,7 +1,8 @@
 import React from "react";
-import Section1 from "./Sections/Section1";
 import { Container } from "@chakra-ui/react";
+import Section1 from "./Sections/Section1";
 import Section2 from "./Sections/Section2";
+import Section3 from "./Sections/Section3";
 
 // Importing Auth0
 import { useAuth0 } from "@auth0/auth0-react";
@@ -18,6 +19,7 @@ const Dashboard = () => {
         <Container maxW={"1010px"} mt={10}>
           <Section1 />
           <Section2 />
+          <Section3 />
         </Container>
       ) : isLoading || isAuthenticated ? (
         <FontAwesomeIcon icon={faSpinner} spin size="2xl" />

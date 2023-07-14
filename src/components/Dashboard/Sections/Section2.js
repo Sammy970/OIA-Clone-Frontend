@@ -1,72 +1,95 @@
-import React, { useEffect, useState } from "react";
-import classes from "./Section2.module.css";
-import Cards from "../../UI/Cards";
-import { Grid, GridItem } from "@chakra-ui/react";
-import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
+  Stack,
+  Box,
+  FormLabel,
+  Input,
+  InputRightAddon,
+  InputLeftAddon,
+  InputGroup,
+  Select,
+  Textarea,
+} from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 
 const Section2 = () => {
-  // Setting Data State for API - fetchUserLinks
-  const [apiData, setApiData] = useState([]);
-
-  // Getting EMAIL of User from Auth0
-  const { user } = useAuth0();
-  const email = user.email;
-
-  useEffect(() => {
-    const url = "https://oia-second-backend.vercel.app/api/fetchUserLinks";
-    // const url = "http://localhost:3000/api/fetchUserLinks";
-    const bodyContent = {
-      data: email,
-    };
-
-    const options = {
-      method: "POST",
-      body: JSON.stringify(bodyContent),
-      headers: { "Content-Type": "application/json" },
-    };
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url, options);
-        const json = await response.json();
-        setApiData(json); // Update the state with fetched data
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, [email, apiData]);
-
-  // console.log(apiData);
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const firstField = React.useRef();
   return (
-    <section className={classes.section2}>
-      <h2>Links:</h2>
-      <Grid
-        templateColumns={{ base: "2fr", md: "repeat(3, 1fr)" }}
-        align={"center"}
-        gap={10}
+    <>
+      <Button leftIcon={<AddIcon />} colorScheme="teal" onClick={onOpen}>
+        Create user
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="bottom"
+        initialFocusRef={firstField}
+        onClose={onClose}
       >
-        {apiData.length === 0 ? (
-          <GridItem colSpan= {3} >
-            <p className={classes.noDataFound}>No data found </p>
-          </GridItem>
-        ) : (
-          apiData.map((data) => {
-            const code = Object.keys(data).toString();
-            const image = data[code].ogMetadata["og:image"];
-            const title = data[code].ogMetadata["og:title"];
-            return (
-              <GridItem key={code}>
-                <Cards image={image} title={title} />
-              </GridItem>
-            );
-          })
-        )}
-        {}
-      </Grid>
-    </section>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader borderBottomWidth="1px">
+            Create a new account
+          </DrawerHeader>
+
+          <DrawerBody>
+            <Stack spacing="24px">
+              <Box>
+                <FormLabel htmlFor="username">Name</FormLabel>
+                <Input
+                  ref={firstField}
+                  id="username"
+                  placeholder="Please enter user name"
+                />
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="url">Url</FormLabel>
+                <InputGroup>
+                  <InputLeftAddon>http://</InputLeftAddon>
+                  <Input
+                    type="url"
+                    id="url"
+                    placeholder="Please enter domain"
+                  />
+                  <InputRightAddon>.com</InputRightAddon>
+                </InputGroup>
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="owner">Select Owner</FormLabel>
+                <Select id="owner" defaultValue="segun">
+                  <option value="segun">Segun Adebayo</option>
+                  <option value="kola">Kola Tioluwani</option>
+                </Select>
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="desc">Description</FormLabel>
+                <Textarea id="desc" />
+              </Box>
+            </Stack>
+          </DrawerBody>
+
+          <DrawerFooter borderTopWidth="1px">
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue">Submit</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
 

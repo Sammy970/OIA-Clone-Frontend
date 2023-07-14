@@ -5,6 +5,7 @@ import Section2 from "./Sections/Section2";
 
 // Importing Auth0
 import { useAuth0 } from "@auth0/auth0-react";
+import Error401 from "../ErrorPages/Error401";
 
 const Dashboard = () => {
   const { isAuthenticated } = useAuth0();
@@ -17,7 +18,7 @@ const Dashboard = () => {
           <Section2 />
         </Container>
       ) : (
-        <h1>Please Login</h1>
+        <Error401 />
       )}
     </>
   );

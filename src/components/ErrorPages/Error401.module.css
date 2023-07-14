@@ -1,0 +1,22 @@
+/* Your Shortcut to Easy Sharing and Snappy URLs! */
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap");
+
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.section1 img {
+  align-self: center;
+}
+
+@media (max-width: 425px) {
+  .section1 h3 {
+    text-align: left;
+    font-size: 40px;
+    line-height: 49px;
+  }
+}

@@ -18,29 +18,34 @@ import {
   InputGroup,
   Select,
   Textarea,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 const Section2 = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
+
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+  const drawerPlacement = isMobile ? "bottom" : "left";
+  const drawerSize = isMobile ? "xs" : "sm";
+  
   return (
     <>
       <Button leftIcon={<AddIcon />} colorScheme="teal" onClick={onOpen}>
-        Create user
+        Create Link
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement="bottom"
+        placement={drawerPlacement}
         initialFocusRef={firstField}
         onClose={onClose}
+        size={drawerSize}
       >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">
-            Create a new account
-          </DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Create a new link</DrawerHeader>
 
           <DrawerBody>
             <Stack spacing="24px">

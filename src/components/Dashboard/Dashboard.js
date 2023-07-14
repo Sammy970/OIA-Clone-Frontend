@@ -6,20 +6,29 @@ import Section2 from "./Sections/Section2";
 // Importing Auth0
 import { useAuth0 } from "@auth0/auth0-react";
 import Error401 from "../ErrorPages/Error401";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
-  const { isAuthenticated } = useAuth0();
-
+  const { isAuthenticated , isLoading } = useAuth0();
+  console.log(isLoading);
+  console.log("auth "+ isAuthenticated)
   return (
     <>
-      {isAuthenticated ? (
+
+      {isAuthenticated  ? (
         <Container maxW={"1010px"} mt={10}>
           <Section1 />
           <Section2 />
         </Container>
-      ) : (
-        <Error401 />
-      )}
+      ) :  (
+        isLoading || isAuthenticated ? (
+          <FontAwesomeIcon icon={faSpinner} spin size="2xl" /> 
+          ) : 
+          <Error401 />
+      )
+      }
+
     </>
   );
 };

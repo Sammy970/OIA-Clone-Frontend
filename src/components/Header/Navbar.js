@@ -23,11 +23,13 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 
+import { useToast } from "@chakra-ui/react";
+
 // Importing Auth0
 import { useAuth0 } from "@auth0/auth0-react";
 
 // Importing for React-Router-Dom
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Importing UI Components
 import LoginButton from "../UI/LoginButton";
@@ -40,6 +42,22 @@ const Navbar = () => {
   const btnRef = React.useRef();
 
   const { user, isLoading, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  const toast = useToast();
+
+  const dashboardRedirectHandler = () => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    } else {
+      toast({
+        title: "Please Login",
+        position: "top-right",
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <div className={classes.navbar}>
@@ -57,7 +75,7 @@ const Navbar = () => {
           </div>
           <div className={classes.links}>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <button onClick={dashboardRedirectHandler}>Dashboard</button>
             </li>
             <li>About</li>
           </div>
@@ -151,13 +169,15 @@ const Navbar = () => {
                   {isAuthenticated ? <LogoutButton /> : <LoginButton />}
                 </Stack>
 
-                <Link
-                  to="/dashboard"
+                <button
                   className={classes.hamburgerOptions}
-                  onClick={onClose}
+                  onClick={() => {
+                    dashboardRedirectHandler();
+                    onClose();
+                  }}
                 >
                   Dashboard
-                </Link>
+                </button>
 
                 <Link className={classes.hamburgerOptions}>About</Link>
               </DrawerBody>

@@ -48,16 +48,23 @@ const Section2 = () => {
         align={"center"}
         gap={10}
       >
-        {apiData.map((data) => {
-          const code = Object.keys(data).toString();
-          const image = data[code].ogMetadata["og:image"];
-          const title = data[code].ogMetadata["og:title"];
-          return (
-            <GridItem key={code}>
-              <Cards image={image} title={title} />
-            </GridItem>
-          );
-        })}
+        {apiData.length === 0 ? (
+          <GridItem colSpan= {3} >
+            <p className={classes.noDataFound}>No data found </p>
+          </GridItem>
+        ) : (
+          apiData.map((data) => {
+            const code = Object.keys(data).toString();
+            const image = data[code].ogMetadata["og:image"];
+            const title = data[code].ogMetadata["og:title"];
+            return (
+              <GridItem key={code}>
+                <Cards image={image} title={title} />
+              </GridItem>
+            );
+          })
+        )}
+        {}
       </Grid>
     </section>
   );

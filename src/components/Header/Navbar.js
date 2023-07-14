@@ -47,7 +47,7 @@ const Navbar = () => {
   const toast = useToast();
 
   const dashboardRedirectHandler = () => {
-    console.log(isAuthenticated);
+    // console.log(isAuthenticated);
     if (isAuthenticated) {
       navigate("/dashboard");
     } else {

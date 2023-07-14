@@ -10,3 +10,8 @@
   color: #0f0f0f;
   font-family: circular-std-bold;
 }
+
+.noDataFound {
+  font-size: 30px;
+  font-family: circular-std-medium;
+}

@@ -10,25 +10,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
-  const { isAuthenticated , isLoading } = useAuth0();
-  console.log(isLoading);
-  console.log("auth "+ isAuthenticated)
+  const { isAuthenticated, isLoading } = useAuth0();
+
   return (
     <>
-
-      {isAuthenticated  ? (
+      {isAuthenticated ? (
         <Container maxW={"1010px"} mt={10}>
           <Section1 />
           <Section2 />
         </Container>
-      ) :  (
-        isLoading || isAuthenticated ? (
-          <FontAwesomeIcon icon={faSpinner} spin size="2xl" /> 
-          ) : 
-          <Error401 />
-      )
-      }
-
+      ) : isLoading || isAuthenticated ? (
+        <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
+      ) : (
+        <Error401 />
+      )}
     </>
   );
 };

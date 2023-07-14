@@ -10,7 +10,6 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Button,
   Stack,
 } from "@chakra-ui/react";
 
@@ -93,9 +92,14 @@ const Navbar = () => {
         </div>
         <div className={classes.ham}>
           {isLoading === false && isAuthenticated === true && (
-            <img src={user.picture} alt="user" width={50} />
+            <img
+              src={user.picture}
+              alt="user"
+              width={50}
+              className={classes.user}
+            />
           )}
-          <Button
+          <button
             ref={btnRef}
             onClick={onOpen}
             className={classes.hamburgerBtn}
@@ -103,9 +107,10 @@ const Navbar = () => {
             <img
               src="https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg"
               alt=""
-              width={40}
+              width={50}
+              className={classes.menuIcon}
             />
-          </Button>
+          </button>
           <Drawer
             isOpen={isOpen}
             placement="right"
@@ -145,10 +150,16 @@ const Navbar = () => {
 
                   {isAuthenticated ? <LogoutButton /> : <LoginButton />}
                 </Stack>
-                <button className={classes.hamburgerOptions} onClick={onClose}>
-                  <Link to="/dashboard">Dashboard</Link>
-                </button>
-                <button className={classes.hamburgerOptions}>About</button>
+
+                <Link
+                  to="/dashboard"
+                  className={classes.hamburgerOptions}
+                  onClick={onClose}
+                >
+                  Dashboard
+                </Link>
+
+                <Link className={classes.hamburgerOptions}>About</Link>
               </DrawerBody>
             </DrawerContent>
           </Drawer>

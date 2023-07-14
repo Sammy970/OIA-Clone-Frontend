@@ -73,13 +73,15 @@
   display: none;
 }
 
-.navbar .ham img {
+.navbar .ham .user {
   margin-right: 0.5rem;
   border-radius: 50%;
 }
 
 .navbar .ham .hamburgerBtn {
   background-color: black;
+  border-radius: 7px;
+  width: 50%;
 }
 
 .hamburgerOptions {

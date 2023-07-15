@@ -14,7 +14,7 @@ const Cards = (props) => {
             </Stack>
             <Image
               src={props.image}
-              objectFit="contain"
+              objectFit="cover"
               width={105}
               borderRadius={7}
             />

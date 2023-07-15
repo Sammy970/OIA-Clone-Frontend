@@ -46,7 +46,7 @@ const Section3 = () => {
       <Grid
         templateColumns={{ base: "2fr", md: "repeat(3, 1fr)" }}
         align={"center"}
-        gap={10}
+        gap={7}
       >
         {apiData.length === 0 ? (
           <GridItem colSpan= {3} >

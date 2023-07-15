@@ -7,6 +7,7 @@ import {
   Text,
   Button,
   useToast,
+  PopoverFooter,
 } from "@chakra-ui/react";
 import classes from "./Card.module.css";
 import { CopyIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
@@ -21,6 +22,22 @@ import {
   PopoverBody,
   PopoverCloseButton,
 } from "@chakra-ui/react";
+
+// for share buttons
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
 
 const Cards = (props) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -80,6 +97,66 @@ const Cards = (props) => {
                         </button>
                       </CopyToClipboard>
                     </PopoverBody>
+                    <PopoverFooter>
+                      <Stack direction={"row"} justifyContent={"space-around"}>
+                        <EmailShareButton
+                          subject={`Your created URL ${props.link}`}
+                        >
+                          <EmailIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </EmailShareButton>
+                        <FacebookShareButton>
+                          <FacebookIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </FacebookShareButton>
+                        <WhatsappShareButton>
+                          <WhatsappIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </WhatsappShareButton>
+                        <LinkedinShareButton>
+                          <LinkedinIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </LinkedinShareButton>
+                        <TelegramShareButton>
+                          <TelegramIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </TelegramShareButton>
+                        <TwitterShareButton>
+                          <TwitterIcon
+                            style={{
+                              width: "35px",
+                              height: "35px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </TwitterShareButton>
+                      </Stack>
+                    </PopoverFooter>
                   </PopoverContent>
                 </Popover>
                 <Button>

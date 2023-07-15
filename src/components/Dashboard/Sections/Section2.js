@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 // For Drawer
 import {
@@ -20,6 +20,8 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
+import { useToast } from "@chakra-ui/react";
+
 // For Modal
 import {
   Modal,
@@ -35,11 +37,13 @@ import { LinkIcon } from "@chakra-ui/icons";
 
 import { AddIcon } from "@chakra-ui/icons";
 import { useAuth0 } from "@auth0/auth0-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Section2 = () => {
   const [url, setUrl] = useState("");
-  const [apiData, setApiData] = useState("");
-  const [callApi, setCallApi] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   // API URL Variable to store user link
   const [apiUrl, setApiUrl] = useState("");
@@ -66,36 +70,64 @@ const Section2 = () => {
     setUrl(event.target.value);
   };
 
-  // UseEffect hook for API Call to convert links
+  // Function to close modal/drawer, and show toast and set isSubmit to False
+  const closeAndShowToast = useCallback(() => {
+    onClose();
+    setShowToast(true);
+    setIsSubmit(false);
+  }, [onClose]);
 
+  // UseEffect hook for API Call to convert links
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(apiUrl);
         const json = await response.json();
-        console.log(json);
-        setApiData(json); // Update the state with fetched data
+        // console.log(json);
+        if (json.shortenedLink) {
+          closeAndShowToast();
+        }
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
-  }, [apiUrl]);
+    if (isSubmit) {
+      fetchData();
+    } else {
+      return;
+    }
+  }, [apiUrl, isSubmit, closeAndShowToast]);
 
   // URL Submission Handler
   const submitHandler = (event) => {
     event.preventDefault();
     setApiUrl(`https://oia.vercel.app/generate?link=${url}&email=${email}`);
+    setIsSubmit(true);
   };
 
-  // console.log(apiData);
+  // Display a success toast when showToast is true
+  const toast = useToast();
+  useEffect(() => {
+    if (showToast) {
+      toast({
+        title: "Link converted successfully.",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+        size: "xl",
+      });
+      setShowToast(false);
+    }
+  }, [showToast, toast]);
 
   return (
     <>
       <Button leftIcon={<AddIcon />} colorScheme="teal" onClick={onOpen}>
         Create Link
       </Button>
+
       {isMobile ? (
         <Drawer
           isOpen={isOpen}
@@ -133,9 +165,13 @@ const Section2 = () => {
               </Stack>
             </DrawerBody>
 
-            <DrawerFooter borderTopWidth="1px">
-              <Button colorScheme="blue" onClick={submitHandler}>
-                Convert
+            <DrawerFooter borderTopWidth="1px" gap={5}>
+              <Button colorScheme="teal" onClick={submitHandler}>
+                {isSubmit ? (
+                  <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
+                ) : (
+                  "Convert"
+                )}
               </Button>
               <Button variant="outline" mr={3} onClick={onClose}>
                 Cancel
@@ -174,7 +210,11 @@ const Section2 = () => {
 
             <ModalFooter>
               <Button colorScheme="blue" mr={3} onClick={submitHandler}>
-                Convert
+                {isSubmit ? (
+                  <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
+                ) : (
+                  "Convert"
+                )}
               </Button>
               <Button onClick={onClose}>Cancel</Button>
             </ModalFooter>

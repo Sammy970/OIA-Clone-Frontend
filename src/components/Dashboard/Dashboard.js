@@ -22,7 +22,12 @@ const Dashboard = () => {
           <Section3 />
         </Container>
       ) : isLoading || isAuthenticated ? (
-        <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
+        <Container maxW={"1010px"} mt={10}>
+          <Section1 />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
+          </div>
+        </Container>
       ) : (
         <Error401 />
       )}

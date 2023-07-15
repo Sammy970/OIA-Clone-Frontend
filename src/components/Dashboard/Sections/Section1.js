@@ -5,6 +5,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Section1 = () => {
   const { user } = useAuth0();
 
+  let name;
+  if (user) {
+    name = user.name;
+  } else {
+    name = "Buddy";
+  }
 
   const [time, setTime] = useState(new Date());
 
@@ -25,18 +31,20 @@ const Section1 = () => {
       return "Good Morning";
     } else if (currentHour < 18) {
       return "Good Afternoon";
-    } else  {
+    } else {
       return "Good Evening";
-    } 
+    }
   };
 
   const greet = getGreeting();
+
+  console.log(name);
 
   return (
     <section className={classes.section1}>
       <h3>
         {greet}, <br />
-        {user.name}
+        {name}
       </h3>
     </section>
   );

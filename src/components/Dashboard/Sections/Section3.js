@@ -14,7 +14,7 @@ const Section3 = () => {
 
   useEffect(() => {
     const url = "https://oia-second-backend.vercel.app/api/fetchUserLinks";
-    // const url = "http://localhost:3000/api/fetchUserLinks";
+    // const url = "http://localhost:3001/api/fetchUserLinks";
     const bodyContent = {
       data: email,
     };
@@ -44,13 +44,17 @@ const Section3 = () => {
     <section className={classes.section3}>
       <h2>Links:</h2>
       <Grid
-        templateColumns={{ base: "2fr", md: "repeat(3, 1fr)" }}
+        templateColumns={{
+          base: "1fr",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
         align={"center"}
         gap={7}
       >
         {apiData.length === 0 ? (
           <GridItem colSpan={3}>
-            <p className={classes.noDataFound}>No data found </p>
+            <p className={classes.noDataFound}>No data found</p>
           </GridItem>
         ) : (
           apiData.map((data) => {

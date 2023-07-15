@@ -8,6 +8,7 @@ import {
   Button,
   useToast,
   PopoverFooter,
+  PopoverArrow,
 } from "@chakra-ui/react";
 import classes from "./Card.module.css";
 import { CopyIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
@@ -81,6 +82,7 @@ const Cards = (props) => {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent border={"2px solid black"}>
+                    <PopoverArrow />
                     <PopoverCloseButton className={classes.popOverCloseBtn} />
                     <PopoverHeader className={classes.popOverHeader}>
                       Short Link

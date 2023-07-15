@@ -119,7 +119,7 @@ const Cards = (props) => {
                             }}
                           />
                         </FacebookShareButton>
-                        <WhatsappShareButton>
+                        <WhatsappShareButton url={props.link} title="Check out this link! Created Using *https://linkkar.vercel.app*">
                           <WhatsappIcon
                             style={{
                               width: "35px",

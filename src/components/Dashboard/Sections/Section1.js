@@ -38,7 +38,7 @@ const Section1 = () => {
 
   const greet = getGreeting();
 
-  console.log(name);
+  // console.log(name);
 
   return (
     <section className={classes.section1}>

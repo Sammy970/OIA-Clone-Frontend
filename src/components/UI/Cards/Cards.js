@@ -7,23 +7,11 @@ import {
   Text,
   Button,
   useToast,
-  PopoverFooter,
-  PopoverArrow,
 } from "@chakra-ui/react";
 import classes from "./Card.module.css";
-import { CopyIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import { EditIcon } from "@chakra-ui/icons";
 
-// For View Link Popover
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverCloseButton,
-} from "@chakra-ui/react";
-import ShareButton from "./ShareButton";
+import ShowButton from "./ShowButton/ShowButton";
 
 const Cards = (props) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -60,37 +48,7 @@ const Cards = (props) => {
                 alignItems={"center"}
                 justifyContent={"space-around"}
               >
-                <Popover placement="auto">
-                  <PopoverTrigger>
-                    <Button>
-                      <ViewIcon />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent border={"2px solid black"}>
-                    <PopoverArrow />
-                    <PopoverCloseButton className={classes.popOverCloseBtn} />
-                    <PopoverHeader className={classes.popOverHeader}>
-                      Short Link
-                    </PopoverHeader>
-                    <PopoverBody className={classes.popOverBody}>
-                      {props.link}
-                      <CopyToClipboard
-                        text={props.link}
-                        className={classes.copyButton}
-                        onCopy={() => setIsCopied(true)}
-                      >
-                        <button>
-                          <CopyIcon />
-                        </button>
-                      </CopyToClipboard>
-                    </PopoverBody>
-                    <PopoverFooter>
-                      <Stack direction={"row"} justifyContent={"space-around"}>
-                        <ShareButton link={props.link} />
-                      </Stack>
-                    </PopoverFooter>
-                  </PopoverContent>
-                </Popover>
+                <ShowButton link={props.link} setIsCopied={setIsCopied} />
                 <Button>
                   <EditIcon />
                 </Button>

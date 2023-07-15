@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Section3.module.css";
-import Cards from "../../UI/Cards";
+import Cards from "../../UI/Cards/Cards";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { useAuth0 } from "@auth0/auth0-react";
 

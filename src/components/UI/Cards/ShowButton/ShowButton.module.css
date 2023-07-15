@@ -1,0 +1,23 @@
+.popOver .popOverCloseBtn {
+  font-size: 12px;
+  padding: 10px 20px 10px 20px;
+  background-color: #0f0f0e;
+}
+
+.popOverHeader {
+  font-size: 18px;
+  font-family: circular-std-bold;
+}
+
+.popOverBody {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #0f0f0e;
+  /* font-weight: 600; */
+  font-family: circular-std-medium;
+}
+
+.popOverBody .copyButton {
+  padding: 2px 5px 2px 5px;
+}

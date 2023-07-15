@@ -49,7 +49,7 @@ const Section3 = () => {
         gap={7}
       >
         {apiData.length === 0 ? (
-          <GridItem colSpan= {3} >
+          <GridItem colSpan={3}>
             <p className={classes.noDataFound}>No data found </p>
           </GridItem>
         ) : (
@@ -57,9 +57,10 @@ const Section3 = () => {
             const code = Object.keys(data).toString();
             const image = data[code].ogMetadata["og:image"];
             const title = data[code].ogMetadata["og:title"];
+            const link = `https://oia.vercel.app/${code}`;
             return (
               <GridItem key={code}>
-                <Cards image={image} title={title} />
+                <Cards image={image} title={title} link={link} />
               </GridItem>
             );
           })

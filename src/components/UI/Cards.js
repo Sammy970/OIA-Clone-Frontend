@@ -110,7 +110,10 @@ const Cards = (props) => {
                             }}
                           />
                         </EmailShareButton>
-                        <FacebookShareButton>
+                        <FacebookShareButton
+                          url={props.link}
+                          title="Check out this link! Created Using *link-कर*"
+                        >
                           <FacebookIcon
                             style={{
                               width: "35px",
@@ -119,7 +122,10 @@ const Cards = (props) => {
                             }}
                           />
                         </FacebookShareButton>
-                        <WhatsappShareButton url={props.link} title="Check out this link! Created Using *https://linkkar.vercel.app*">
+                        <WhatsappShareButton
+                          url={props.link}
+                          title="Check out this link! Created Using *link-कर*"
+                        >
                           <WhatsappIcon
                             style={{
                               width: "35px",
@@ -128,7 +134,10 @@ const Cards = (props) => {
                             }}
                           />
                         </WhatsappShareButton>
-                        <LinkedinShareButton>
+                        <LinkedinShareButton
+                          url={props.link}
+                          title="Check out this link! Created Using #link-कर"
+                        >
                           <LinkedinIcon
                             style={{
                               width: "35px",
@@ -137,7 +146,10 @@ const Cards = (props) => {
                             }}
                           />
                         </LinkedinShareButton>
-                        <TelegramShareButton>
+                        <TelegramShareButton
+                          url={props.link}
+                          title="Check out this link! Created Using *link-कर*"
+                        >
                           <TelegramIcon
                             style={{
                               width: "35px",
@@ -146,7 +158,10 @@ const Cards = (props) => {
                             }}
                           />
                         </TelegramShareButton>
-                        <TwitterShareButton>
+                        <TwitterShareButton
+                          url={props.link}
+                          title="Check out this link! Created Using #link-कर"
+                        >
                           <TwitterIcon
                             style={{
                               width: "35px",

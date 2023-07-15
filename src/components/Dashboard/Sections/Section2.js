@@ -44,6 +44,7 @@ const Section2 = () => {
   const [url, setUrl] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [isInputValid, setInputValid] = useState(false);
 
   // API URL Variable to store user link
   const [apiUrl, setApiUrl] = useState("");
@@ -67,6 +68,12 @@ const Section2 = () => {
 
   // URL from user Handler
   const inputUrlHandler = (event) => {
+    const inputCheck = event.target.value.length > 0;
+    if (inputCheck) {
+      setInputValid(true);
+    } else {
+      setInputValid(false);
+    }
     setUrl(event.target.value);
   };
 
@@ -75,6 +82,7 @@ const Section2 = () => {
     onClose();
     setShowToast(true);
     setIsSubmit(false);
+    setUrl("");
   }, [onClose]);
 
   // UseEffect hook for API Call to convert links
@@ -158,7 +166,9 @@ const Section2 = () => {
                       id="url"
                       placeholder="Please enter URL"
                       onChange={inputUrlHandler}
+                      disabled={isSubmit}
                       value={url}
+                      required={true}
                     />
                   </InputGroup>
                 </Box>
@@ -166,7 +176,11 @@ const Section2 = () => {
             </DrawerBody>
 
             <DrawerFooter borderTopWidth="1px" gap={5}>
-              <Button colorScheme="teal" onClick={submitHandler}>
+              <Button
+                colorScheme="teal"
+                onClick={submitHandler}
+                isDisabled={!isInputValid}
+              >
                 {isSubmit ? (
                   <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
                 ) : (
@@ -203,13 +217,19 @@ const Section2 = () => {
                   id="url"
                   placeholder="Please enter URL"
                   onChange={inputUrlHandler}
+                  disabled={isSubmit}
                   value={url}
                 />
               </InputGroup>
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={submitHandler}>
+              <Button
+                colorScheme="teal"
+                mr={3}
+                onClick={submitHandler}
+                isDisabled={!isInputValid}
+              >
                 {isSubmit ? (
                   <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
                 ) : (

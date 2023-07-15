@@ -1,5 +1,13 @@
-import React from "react";
-import { Card, CardBody, Stack, Image, Text, Button } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardBody,
+  Stack,
+  Image,
+  Text,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import classes from "./Card.module.css";
 import { CopyIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -15,6 +23,23 @@ import {
 } from "@chakra-ui/react";
 
 const Cards = (props) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  // Toast for Link Copied Successfully
+  const toast = useToast();
+  useEffect(() => {
+    if (isCopied) {
+      toast({
+        title: "Link Copied Successfully ✅",
+        status: "info",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
+      setIsCopied(false);
+    }
+  }, [isCopied, toast]);
+
   return (
     <Card maxW="300px" height={"215px"} className={classes.card1}>
       <CardBody>
@@ -48,6 +73,7 @@ const Cards = (props) => {
                       <CopyToClipboard
                         text={props.link}
                         className={classes.copyButton}
+                        onCopy={() => setIsCopied(true)}
                       >
                         <button>
                           <CopyIcon />

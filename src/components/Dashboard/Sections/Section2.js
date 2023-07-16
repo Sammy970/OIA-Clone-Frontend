@@ -111,8 +111,16 @@ const Section2 = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     setApiUrl(`https://oia.vercel.app/generate?link=${url}&email=${email}`);
+    let modifiedUrl = url;
+    if (!url.startsWith("https://")) {
+      modifiedUrl = `https://${url}`;
+    }
+    console.log(modifiedUrl);
+    setApiUrl(
+      `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
+    );
     setIsSubmit(true);
-    setInputValid(false)
+    setInputValid(false);
   };
 
   // Display a success toast when showToast is true

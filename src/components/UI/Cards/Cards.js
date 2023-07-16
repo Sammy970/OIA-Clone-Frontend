@@ -47,6 +47,8 @@ const Cards = (props) => {
                   image={props.image}
                   link={props.link}
                   ogLink={props.ogLink}
+                  code={props.code}
+                  data={props.data}
                 />
               </Stack>
               <button>Analytics</button>

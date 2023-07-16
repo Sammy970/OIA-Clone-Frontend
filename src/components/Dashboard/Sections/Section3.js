@@ -62,6 +62,7 @@ const Section3 = () => {
             const code = Object.keys(data).toString();
             const image = data[code].ogMetadata["og:image"];
             const title = data[code].ogMetadata["og:title"];
+            const description = data[code].ogMetadata["og:description"];
             const ogLink = data[code].link;
             const link = `https://oia.vercel.app/${code}`;
             return (
@@ -69,8 +70,11 @@ const Section3 = () => {
                 <Cards
                   image={image}
                   title={title}
+                  description={description}
                   link={link}
                   ogLink={ogLink}
+                  code={code}
+                  data={data}
                 />
               </GridItem>
             );

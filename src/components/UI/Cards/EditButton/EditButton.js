@@ -71,12 +71,19 @@ const EditButton = (props) => {
                 <Stack direction="column">
                   <InputGroup>
                     <InputLeftAddon children="OG Link" />
-                    <Input
-                      type="text"
-                      placeholder={props.ogLink}
-                      isDisabled={true}
-                      defaultValue={props.ogLink}
-                    />
+                    <Box
+                      // Apply CSS styles for scrolling
+                      overflowX="auto"
+                      width={"full"}
+                      whiteSpace="nowrap"
+                    >
+                      <Input
+                        type="text"
+                        placeholder={props.ogLink}
+                        isDisabled={true}
+                        defaultValue={props.ogLink}
+                      />
+                    </Box>
                   </InputGroup>
                   <InputGroup>
                     <InputLeftAddon children="Short Link" />

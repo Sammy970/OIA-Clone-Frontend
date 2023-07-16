@@ -125,6 +125,25 @@ const Section2 = () => {
     );
     setIsSubmit(true);
     setInputValid(false);
+    if (isValid) {
+      setApiUrl(
+        `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
+      );
+      setIsSubmit(true);
+      setInputValid(false);
+    } else {
+      toast({
+        title: "Invalid URL",
+        description: "Please enter a valid URL.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+        size: "xl",
+      });
+      setIsSubmit(false);
+      setInputValid(false);
+    }
   };
 
   // Display a success toast when showToast is true

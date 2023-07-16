@@ -110,11 +110,16 @@ const Section2 = () => {
   // URL Submission Handler
   const submitHandler = (event) => {
     event.preventDefault();
-    setApiUrl(`https://oia.vercel.app/generate?link=${url}&email=${email}`);
     let modifiedUrl = url;
+
     if (!url.startsWith("https://")) {
       modifiedUrl = `https://${url}`;
     }
+
+    const urlRegex = /^(http|https):\/\/[^ "]+\.[^ "]+$/;
+    const isValid = urlRegex.test(modifiedUrl);
+    console.log(isValid);
+
     setApiUrl(
       `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
     );

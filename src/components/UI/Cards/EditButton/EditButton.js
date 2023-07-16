@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 // For Drawer
 import {
@@ -26,6 +26,8 @@ import classes from "./EditButton.module.css";
 
 import { EditIcon } from "@chakra-ui/icons";
 import { useAuth0 } from "@auth0/auth0-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const EditButton = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,7 +38,10 @@ const EditButton = (props) => {
   const email = user.email;
 
   // State for API Response Data
-  const [apiData, setApiData] = useState("");
+  // const [apiResponseData, setApiResponseData] = useState("");
+
+  // Loading State for edit button submit spinner
+  const [isLoading, setIsLoading] = useState(false);
 
   // Local Data Updatation
   const [titleData, setTitleData] = useState(props.title);
@@ -61,6 +66,11 @@ const EditButton = (props) => {
     onClose();
   };
 
+  const onCloseHandler = useCallback(() => {
+    setIsLoading(false);
+    onClose();
+  }, [onClose]);
+
   useEffect(() => {
     const url = "https://oia-second-backend.vercel.app/api/editUserLinks";
     // const url = "http://localhost:3001/api/editUserLinks";
@@ -80,8 +90,10 @@ const EditButton = (props) => {
     const fetchData = async () => {
       try {
         const response = await fetch(url, options);
-        const json = await response.json();
-        setApiData(json); // Update the state with fetched data
+        // const json = await response.json();
+        if (response.status === 201 || response.status === 200) {
+          onCloseHandler();
+        }
       } catch (error) {
         console.log("error", error);
       }
@@ -89,9 +101,10 @@ const EditButton = (props) => {
 
     if (Object.keys(dataToBeSent).toString() !== "") {
       console.log("I am in useffect");
+      setIsLoading(true);
       fetchData();
     }
-  }, [dataToBeSent, code, email]);
+  }, [dataToBeSent, code, email, onCloseHandler]);
 
   const submitHandler = () => {
     console.log("Hello, i am in Submithandler");
@@ -102,6 +115,8 @@ const EditButton = (props) => {
     setTitleData(titleData);
     setDescData(descData);
   };
+
+  // console.log(apiData.status);
 
   return (
     <>
@@ -204,7 +219,16 @@ const EditButton = (props) => {
               Cancel
             </Button>
             <Button className={classes.submitBtn} onClick={submitHandler}>
-              Submit
+              {isLoading ? (
+                <FontAwesomeIcon
+                  icon={faSpinner}
+                  color="#0f0f0e"
+                  spin
+                  size="lg"
+                />
+              ) : (
+                "Submit"
+              )}
             </Button>
           </DrawerFooter>
         </DrawerContent>

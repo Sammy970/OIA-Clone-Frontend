@@ -118,7 +118,7 @@ const Section2 = () => {
 
     const urlRegex = /^(http|https):\/\/[^ "]+\.[^ "]+$/;
     const isValid = urlRegex.test(modifiedUrl);
-    console.log(isValid);
+    // console.log(isValid);
 
     setApiUrl(
       `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`

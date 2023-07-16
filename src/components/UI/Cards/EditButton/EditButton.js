@@ -20,6 +20,7 @@ import {
   Textarea,
   Image,
   Center,
+  useToast,
 } from "@chakra-ui/react";
 
 import classes from "./EditButton.module.css";
@@ -38,7 +39,10 @@ const EditButton = (props) => {
   const email = user.email;
 
   // State for API Response Data
-  // const [apiResponseData, setApiResponseData] = useState("");
+  const [apiResStatus, setApiResStatus] = useState("");
+
+  // State for Toast Show
+  const [showToast, setShowToast] = useState(false);
 
   // Loading State for edit button submit spinner
   const [isLoading, setIsLoading] = useState(false);
@@ -68,6 +72,7 @@ const EditButton = (props) => {
 
   const onCloseHandler = useCallback(() => {
     setIsLoading(false);
+    setShowToast(true);
     onClose();
   }, [onClose]);
 
@@ -91,6 +96,7 @@ const EditButton = (props) => {
       try {
         const response = await fetch(url, options);
         // const json = await response.json();
+        setApiResStatus(response.status);
         if (response.status === 201 || response.status === 200) {
           onCloseHandler();
         }
@@ -106,6 +112,25 @@ const EditButton = (props) => {
     }
   }, [dataToBeSent, code, email, onCloseHandler]);
 
+  const toast = useToast();
+  useEffect(() => {
+    if (showToast) {
+      toast({
+        title: `${
+          apiResStatus === 201
+            ? "Link converted successfully."
+            : "Please Add Changes"
+        }`,
+        status: `${apiResStatus === 201 ? "success" : "info"}`,
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+        size: "xl",
+      });
+      setShowToast(false);
+    }
+  }, [showToast, toast, apiResStatus]);
+
   const submitHandler = () => {
     console.log("Hello, i am in Submithandler");
     const dataToEdit = props.data[props.code].ogMetadata;
@@ -115,8 +140,6 @@ const EditButton = (props) => {
     setTitleData(titleData);
     setDescData(descData);
   };
-
-  // console.log(apiData.status);
 
   return (
     <>

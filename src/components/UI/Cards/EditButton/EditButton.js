@@ -69,21 +69,19 @@ const EditButton = (props) => {
               <Box>
                 <FormLabel htmlFor="shortUrl">Links</FormLabel>
                 <Stack direction="column">
-                  <InputGroup>
+                  <InputGroup
+                    display={"flex"}
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                  >
                     <InputLeftAddon children="OG Link" />
-                    <Box
-                      // Apply CSS styles for scrolling
-                      overflowX="auto"
-                      width={"full"}
-                      whiteSpace="nowrap"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={props.ogLink}
-                        isDisabled={true}
-                        defaultValue={props.ogLink}
-                      />
-                    </Box>
+                    <Textarea
+                      type="text"
+                      placeholder={props.ogLink}
+                      isDisabled={true}
+                      defaultValue={props.ogLink}
+                      style={{ overflowWrap: "break-word" }}
+                    />
                   </InputGroup>
                   <InputGroup>
                     <InputLeftAddon children="Short Link" />

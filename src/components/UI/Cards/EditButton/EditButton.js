@@ -57,7 +57,7 @@ const EditButton = (props) => {
   // Function to handle close drawer when clicked on "cancel"
   const closeDrawer = () => {
     setTitleData(props.title);
-    setDescData(props.title);
+    setDescData(props.description);
     onClose();
   };
 
@@ -99,6 +99,8 @@ const EditButton = (props) => {
     dataToEdit["og:title"] = titleData;
     dataToEdit["og:description"] = descData;
     setDataToBeSent(props.data);
+    setTitleData(titleData);
+    setDescData(descData);
   };
 
   return (

@@ -106,7 +106,6 @@ const EditButton = (props) => {
     };
 
     if (Object.keys(dataToBeSent).toString() !== "") {
-      console.log("I am in useffect");
       setIsLoading(true);
       fetchData();
     }
@@ -132,7 +131,6 @@ const EditButton = (props) => {
   }, [showToast, toast, apiResStatus]);
 
   const submitHandler = () => {
-    console.log("Hello, i am in Submithandler");
     const dataToEdit = props.data[props.code].ogMetadata;
     dataToEdit["og:title"] = titleData;
     dataToEdit["og:description"] = descData;

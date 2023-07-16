@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardBody,
-  Stack,
-  Image,
-  Text,
-  Button,
-  useToast,
-} from "@chakra-ui/react";
+import { Card, CardBody, Stack, Image, Text, useToast } from "@chakra-ui/react";
 import classes from "./Card.module.css";
-import { EditIcon } from "@chakra-ui/icons";
 
 import ShowButton from "./ShowButton/ShowButton";
+import EditButton from "./EditButton/EditButton";
 
 const Cards = (props) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -49,9 +41,13 @@ const Cards = (props) => {
                 justifyContent={"space-around"}
               >
                 <ShowButton link={props.link} setIsCopied={setIsCopied} />
-                <Button>
-                  <EditIcon />
-                </Button>
+                <EditButton
+                  title={props.title}
+                  description={props.description}
+                  image={props.image}
+                  link={props.link}
+                  ogLink={props.ogLink}
+                />
               </Stack>
               <button>Analytics</button>
             </Stack>

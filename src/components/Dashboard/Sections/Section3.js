@@ -58,13 +58,20 @@ const Section3 = () => {
           </GridItem>
         ) : (
           apiData.map((data) => {
+            // console.log(data);
             const code = Object.keys(data).toString();
             const image = data[code].ogMetadata["og:image"];
             const title = data[code].ogMetadata["og:title"];
+            const ogLink = data[code].link;
             const link = `https://oia.vercel.app/${code}`;
             return (
               <GridItem key={code}>
-                <Cards image={image} title={title} link={link} />
+                <Cards
+                  image={image}
+                  title={title}
+                  link={link}
+                  ogLink={ogLink}
+                />
               </GridItem>
             );
           })

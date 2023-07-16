@@ -1,0 +1,27 @@
+.urlText {
+  color: "#0f0f0e";
+  font-family: circular-std-medium;
+  /* border: 2px solid #ffc91f; */
+}
+
+.inputAddon {
+  background-color: #ffc91f;
+}
+
+.insideText {
+  font-family: circular-std-light;
+  outline: none;
+}
+
+label,
+.header {
+  font-family: circular-std-bold;
+}
+
+.submitBtn {
+  background-color: #ffc91f;
+}
+
+.submitBtn:hover {
+    background-color: #fad456;
+}

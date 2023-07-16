@@ -22,6 +22,8 @@ import {
   Center,
 } from "@chakra-ui/react";
 
+import classes from "./EditButton.module.css";
+
 import { EditIcon } from "@chakra-ui/icons";
 
 const EditButton = (props) => {
@@ -60,7 +62,7 @@ const EditButton = (props) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">
+          <DrawerHeader borderBottomWidth="1px" className={classes.header}>
             Edit your Link Appreance
           </DrawerHeader>
 
@@ -74,22 +76,32 @@ const EditButton = (props) => {
                     justifyContent={"space-between"}
                     alignItems={"center"}
                   >
-                    <InputLeftAddon children="OG Link" />
+                    <InputLeftAddon
+                      children="OG Link"
+                      className={classes.inputAddon}
+                    />
                     <Textarea
                       type="text"
+                      _disabled={{ opacity: "1" }}
                       placeholder={props.ogLink}
                       isDisabled={true}
                       defaultValue={props.ogLink}
-                      style={{ overflowWrap: "break-word" }}
+                      className={classes.urlText}
+                      style={{}}
                     />
                   </InputGroup>
                   <InputGroup>
-                    <InputLeftAddon children="Short Link" />
+                    <InputLeftAddon
+                      children="Short Link"
+                      className={classes.inputAddon}
+                    />
                     <Input
                       type="text"
+                      _disabled={{ opacity: "1" }}
                       placeholder={props.link}
                       isDisabled={true}
                       defaultValue={props.link}
+                      className={classes.urlText}
                     />
                   </InputGroup>
                 </Stack>
@@ -98,11 +110,12 @@ const EditButton = (props) => {
               <Box>
                 <FormLabel htmlFor="title">Title</FormLabel>
                 <Input
-                  ref={firstField}
+                  // ref={firstField}
                   id="title"
                   placeholder="Please enter a title"
                   value={titleData}
                   onChange={titleChangeHandler}
+                  className={classes.insideText}
                 />
               </Box>
 
@@ -113,6 +126,7 @@ const EditButton = (props) => {
                   minH={"90px"}
                   value={descData}
                   onChange={descChangeHandler}
+                  className={classes.insideText}
                 />
               </Box>
 
@@ -133,7 +147,7 @@ const EditButton = (props) => {
             <Button variant="outline" mr={3} onClick={closeDrawer}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Submit</Button>
+            <Button className={classes.submitBtn}>Submit</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

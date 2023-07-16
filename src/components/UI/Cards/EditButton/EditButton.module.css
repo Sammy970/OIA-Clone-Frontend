@@ -4,11 +4,11 @@
   /* border: 2px solid #ffc91f; */
 }
 
-.inputAddon {
+.drawerContent .inputAddon {
   background-color: #ffc91f;
 }
 
-.insideText {
+.drawerContent .insideText {
   font-family: circular-std-light;
   outline: none;
 }
@@ -18,10 +18,10 @@ label,
   font-family: circular-std-bold;
 }
 
-.submitBtn {
+.drawerContent .submitBtn {
   background-color: #ffc91f;
 }
 
-.submitBtn:hover {
-    background-color: #fad456;
+.drawerContent .submitBtn:hover {
+  background-color: #fad456;
 }

@@ -60,7 +60,7 @@ const EditButton = (props) => {
         size={"md"}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent className={classes.drawerContent}>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px" className={classes.header}>
             Edit your Link Appreance

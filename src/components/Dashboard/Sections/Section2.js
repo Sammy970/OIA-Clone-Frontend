@@ -115,7 +115,6 @@ const Section2 = () => {
     if (!url.startsWith("https://")) {
       modifiedUrl = `https://${url}`;
     }
-    console.log(modifiedUrl);
     setApiUrl(
       `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
     );

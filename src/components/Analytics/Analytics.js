@@ -2,6 +2,7 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Section1 from "./Sections/Section1";
+import Section2 from "./Sections/Section2";
 
 const Analytics = () => {
   const location = useLocation();
@@ -20,7 +21,8 @@ const Analytics = () => {
         image={image}
         code={code}
       />
-      <section></section>
+      <Section2 code={code} />
+
       <section></section>
     </Container>
   );

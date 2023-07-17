@@ -4,9 +4,11 @@ import classes from "./Card.module.css";
 
 import ShowButton from "./ShowButton/ShowButton";
 import EditButton from "./EditButton/EditButton";
+import { useNavigate } from "react-router-dom";
 
 const Cards = (props) => {
   const [isCopied, setIsCopied] = useState(false);
+  const navigate = useNavigate();
 
   // Toast for Link Copied Successfully
   const toast = useToast();
@@ -22,6 +24,19 @@ const Cards = (props) => {
       setIsCopied(false);
     }
   }, [isCopied, toast]);
+
+  const analyticsHandler = (event) => {
+    event.preventDefault();
+    // console.log(event.target.id);
+    const obj = {
+      title: props.title,
+      description: props.description,
+      image: props.image,
+      code: props.code,
+    };
+
+    navigate("/dashboard/analytics", { state: { obj } });
+  };
 
   return (
     <Card maxW="300px" height={"215px"} className={classes.card1}>
@@ -51,7 +66,9 @@ const Cards = (props) => {
                   data={props.data}
                 />
               </Stack>
-              <button>Analytics</button>
+              <button id={props.code} onClick={analyticsHandler}>
+                Analytics
+              </button>
             </Stack>
             <Image
               src={props.image}

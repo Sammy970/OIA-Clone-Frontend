@@ -1,0 +1,32 @@
+/* Your Shortcut to Easy Sharing and Snappy URLs! */
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap");
+
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 33px;
+  /* padding-top: 20px; */
+}
+
+.section1 h3 {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 60px;
+  text-align: start;
+  color: #0f0f0f;
+  font-family: circular-std-bold;
+  margin-bottom: 33px;
+  /* font-family: "Signika Negative", sans-serif; */
+}
+
+@media (max-width: 425px) {
+  .section1 h3 {
+    text-align: left;
+    font-size: 40px;
+    line-height: 49px;
+  }
+}

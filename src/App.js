@@ -1,4 +1,5 @@
 import "./App.css";
+import Analytics from "./components/Analytics/Analytics";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Header/Navbar";
@@ -23,6 +24,14 @@ function App() {
             element={
               <>
                 <Dashboard />
+              </>
+            }
+          />
+          <Route
+            path="/dashboard/analytics"
+            element={
+              <>
+                <Analytics />
               </>
             }
           />

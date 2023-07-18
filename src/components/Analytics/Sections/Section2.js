@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import AnalyticsCard from "../AnalyticsCard/AnalyticsCard";
 import { Stack } from "@chakra-ui/react";
-import CityCard from "../CityCard/CityCard";
+import CityCard from "../CityAndStateCard/CityCard";
 import classes from "./Section2.module.css";
+import StateCard from "../CityAndStateCard/StateCard";
 
 const Section2 = (props) => {
   const [apiData, setApiData] = useState({});
@@ -55,13 +56,21 @@ const Section2 = (props) => {
   return (
     <section className={classes.section2}>
       <Stack
+        direction={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        mb={10}
+      >
+        <AnalyticsCard clicks={apiData.clicks} onCall={apiRecall} />
+      </Stack>
+      <Stack
         direction={{ base: "column", lg: "row" }}
         spacing={4}
         justifyContent={"space-evenly"}
         alignItems={"center"}
       >
-        <AnalyticsCard clicks={apiData.clicks} onCall={apiRecall} />
         <CityCard cityData={apiData.city} totalClicks={apiData.clicks} />
+        <StateCard stateData={apiData.state} totalClicks={apiData.clicks} />
       </Stack>
     </section>
   );

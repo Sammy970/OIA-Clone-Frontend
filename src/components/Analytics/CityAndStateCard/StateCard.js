@@ -112,7 +112,7 @@ const StateCard = (props) => {
                  {showMore ? "View Less" : "View More"} 
                </Button> 
              )} 
-           </> 
+          
          ) : ( 
            <Text 
              display={"flex"} 

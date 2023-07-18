@@ -4,6 +4,7 @@ import { Grid, GridItem, Stack } from "@chakra-ui/react";
 import CityCard from "../CityAndStateCard/CityCard";
 import classes from "./Section2.module.css";
 import StateCard from "../CityAndStateCard/StateCard";
+import CountryCard from "../CityAndStateCard/CountryCard";
 
 const Section2 = (props) => {
   const [apiData, setApiData] = useState({});
@@ -65,15 +66,24 @@ const Section2 = (props) => {
       </Stack>
 
       <Grid
-        templateColumns="repeat(2, 1fr)"
-        gap={10}
-        justifyContent={"space-evenly"}
+        templateColumns={{
+          base: "1fr",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
+        gap={6}
       >
-        <GridItem>
+        <GridItem >
           <CityCard cityData={apiData.city} totalClicks={apiData.clicks} />
         </GridItem>
         <GridItem>
           <StateCard stateData={apiData.state} totalClicks={apiData.clicks} />
+        </GridItem>
+        <GridItem>
+          <CountryCard
+            countryData={apiData.country}
+            totalClicks={apiData.clicks}
+          />
         </GridItem>
       </Grid>
     </section>

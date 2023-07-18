@@ -8,7 +8,12 @@ import {
 import classes from "./AnalyticsCard.module.css";
 
 const AnalyticsCard = (props) => {
-  const clicks = props.clicks;
+  let clicks;
+  if (props.clicks !== undefined) {
+    clicks = props.clicks;
+  } else {
+    clicks = 0;
+  }
   return (
     <Card height="150px" width="200px">
       <CardBody>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AnalyticsCard from "../AnalyticsCard/AnalyticsCard";
-import { Grid, GridItem, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import CityCard from "../CityCard/CityCard";
 import classes from "./Section2.module.css";
 
@@ -11,9 +11,8 @@ const Section2 = (props) => {
   const code = props.code;
 
   useEffect(() => {
-    const url =
-      "https://oia-second-backend.vercel.app/api/analytics/analyticsData";
-    // const url = "http://localhost:3001/api/analytics/analyticsData";
+    const url = "https://oia-second-backend.vercel.app/api/analyticsData";
+    // const url = "http://localhost:3001/api/analyticsData";
     const bodyContent = {
       code: code,
     };

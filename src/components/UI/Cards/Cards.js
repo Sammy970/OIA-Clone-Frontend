@@ -39,7 +39,7 @@ const Cards = (props) => {
   };
 
   return (
-    <Card maxW="300px" height={"215px"} className={classes.card1}>
+    <Card maxW="300px" max-height={"220px"} className={classes.card1}>
       <CardBody>
         <Stack direction={"column"} spacing="24px">
           <Stack direction={"row"} justifyContent={"space-evenly"} spacing="3">
@@ -79,13 +79,7 @@ const Cards = (props) => {
               border={"2px solid black"}
             />
           </Stack>
-          <Text
-            noOfLines={2}
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            height={"48px"}
-          >
+          <Text noOfLines={2} height={"48px"}>
             {props.title}
           </Text>
         </Stack>

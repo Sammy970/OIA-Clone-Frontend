@@ -1,10 +1,21 @@
 import React from "react";
 import classes from "./CityCard.module.css";
-import { Card, CardBody, Progress, Stack, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Progress,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 
 const CityCard = (props) => {
-  const cityData = props.cityData;
+  let cityData = props.cityData;
   const totalClicks = props.totalClicks;
+
+  if (cityData === null) {
+    cityData = [];
+  }
 
   let cityArr = [];
   if (cityData !== undefined) {
@@ -26,15 +37,20 @@ const CityCard = (props) => {
   }
 
   if (cityArr.length > 0) {
-    console.log(cityArr);
   }
 
   //   const cityNames = Object.keys(cityData.city);
   //   console.log(cityNames);
   return (
     <Card height="full" width={{ base: "90%", lg: "full" }}>
+      <CardHeader
+        className={classes.header}
+        height="50px"
+      >
+        <Text className={classes.headerText}>City</Text>
+      </CardHeader>
       <CardBody>
-        {cityArr.length > 0 &&
+        {cityArr.length > 0 ? (
           cityArr.map((data) => {
             let cityName = Object.keys(data).toString();
             let curValue = data[cityName];
@@ -60,7 +76,17 @@ const CityCard = (props) => {
                 </Stack>
               </li>
             );
-          })}
+          })
+        ) : (
+          <Text
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            className={classes.text}
+          >
+            No clicks yet
+          </Text>
+        )}
       </CardBody>
     </Card>
   );

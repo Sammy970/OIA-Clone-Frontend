@@ -5,6 +5,7 @@ import CityCard from "../CityAndStateCard/CityCard";
 import classes from "./Section2.module.css";
 import StateCard from "../CityAndStateCard/StateCard";
 import CountryCard from "../CityAndStateCard/CountryCard";
+import OsCard from "../OsCard/OsCard";
 
 const Section2 = (props) => {
   const [apiData, setApiData] = useState({});
@@ -50,9 +51,9 @@ const Section2 = (props) => {
     setApiCall(!apiCall);
   };
 
-  if (apiData !== "") {
-    console.log(apiData.osName);
-  }
+  // if (apiData !== "") {
+  //   console.log(apiData.osName);
+  // }
 
   return (
     <section className={classes.section2}>
@@ -84,6 +85,9 @@ const Section2 = (props) => {
             countryData={apiData.country}
             totalClicks={apiData.clicks}
           />
+        </GridItem>
+        <GridItem>
+          <OsCard osName={apiData.osName} />
         </GridItem>
       </Grid>
     </section>

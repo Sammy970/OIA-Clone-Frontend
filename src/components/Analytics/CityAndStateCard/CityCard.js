@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./CityCard.css";
 import {
+  Button,
   Card,
   CardBody,
   CardHeader,
@@ -12,6 +13,12 @@ import {
 const CityCard = (props) => {
   let cityData = props.cityData;
   const totalClicks = props.totalClicks;
+
+  const [showMore, setShowMore] = useState(false);
+
+  const handleClick = () => {
+    setShowMore(!showMore);
+  };
 
   if (cityData === null) {
     cityData = [];
@@ -36,11 +43,6 @@ const CityCard = (props) => {
     });
   }
 
-  if (cityArr.length > 0) {
-  }
-
-  //   const cityNames = Object.keys(cityData.city);
-  //   console.log(cityNames);
   return (
     <Card height="full" width={{ base: "90%", lg: "full" }}>
       <CardHeader className={classes.header} height="50px">
@@ -48,32 +50,71 @@ const CityCard = (props) => {
       </CardHeader>
       <CardBody>
         {cityArr.length > 0 ? (
-          cityArr.map((data) => {
-            let cityName = Object.keys(data).toString();
-            let curValue = data[cityName];
-            return (
-              <li key={cityName}>
-                <Text>{cityName}</Text>
-                <Stack
-                  direction={"row"}
-                  justifyContent={"space-around"}
-                  alignItems={"center"}
-                >
-                  <Progress
-                    colorScheme="teal"
-                    className={classes.progressBar}
-                    size="lg"
-                    width={"90%"}
-                    borderRadius={7}
-                    border={"1px solid #0f0f0e"}
-                    id={cityName}
-                    value={curValue}
-                  />
-                  <Text>{curValue.toFixed(0)}%</Text>
-                </Stack>
-              </li>
-            );
-          })
+          <>
+            {!showMore
+              ? cityArr.slice(0, 2).map((data) => {
+                  let cityName = Object.keys(data).toString();
+                  let curValue = data[cityName];
+                  return (
+                    <li key={cityName}>
+                      <Text>{cityName}</Text>
+                      <Stack
+                        direction={"row"}
+                        justifyContent={"space-around"}
+                        alignItems={"center"}
+                      >
+                        <Progress
+                          colorScheme="teal"
+                          className={classes.progressBar}
+                          size="lg"
+                          width={"90%"}
+                          borderRadius={7}
+                          border={"1px solid #0f0f0e"}
+                          id={cityName}
+                          value={curValue}
+                        />
+                        <Text>{curValue.toFixed(0)}%</Text>
+                      </Stack>
+                    </li>
+                  );
+                })
+              : cityArr.map((data) => {
+                  let cityName = Object.keys(data).toString();
+                  let curValue = data[cityName];
+                  return (
+                    <li key={cityName}>
+                      <Text>{cityName}</Text>
+                      <Stack
+                        direction={"row"}
+                        justifyContent={"space-around"}
+                        alignItems={"center"}
+                      >
+                        <Progress
+                          colorScheme="teal"
+                          className={classes.progressBar}
+                          size="lg"
+                          width={"90%"}
+                          borderRadius={7}
+                          border={"1px solid #0f0f0e"}
+                          id={cityName}
+                          value={curValue}
+                        />
+                        <Text>{curValue.toFixed(0)}%</Text>
+                      </Stack>
+                    </li>
+                  );
+                })}
+            {cityArr.length > 2 && (
+              <Button
+                onClick={handleClick}
+                mt={4}
+                variant="link"
+                colorScheme="blue"
+              >
+                {showMore ? "View Less" : "View More"}
+              </Button>
+            )}
+          </>
         ) : (
           <Text
             display={"flex"}

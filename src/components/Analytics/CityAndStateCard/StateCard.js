@@ -46,7 +46,7 @@ const StateCard = (props) => {
   return (
     <Card height="full" width={{ base: "90%", lg: "full" }}>
       <CardHeader className={classes.header} height="50px">
-        <Text className={classes.headerText}>City</Text>
+        <Text className={classes.headerText}>State</Text>
       </CardHeader>
       <CardBody>
         {stateArr.length > 0 ? (

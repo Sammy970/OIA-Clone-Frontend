@@ -102,16 +102,27 @@ const StateCard = (props) => {
                 </li>
               );
             })}
-        {stateArr.length > 2 && (
-          <Button
-            onClick={handleClick}
-            mt={4}
-            variant="link"
-            colorScheme="blue"
-          >
-            {showMore ? "View Less" : "View More"}
-          </Button>
-        )}
+            {stateArr.length > 2 && ( 
+               <Button 
+                 onClick={handleClick} 
+                 mt={4} 
+                 variant="link" 
+                 colorScheme="blue" 
+               > 
+                 {showMore ? "View Less" : "View More"} 
+               </Button> 
+             )} 
+           </> 
+         ) : ( 
+           <Text 
+             display={"flex"} 
+             justifyContent={"center"} 
+             alignItems={"center"} 
+             className={classes.text} 
+           > 
+             No clicks yet 
+           </Text> 
+         )}
       </CardBody>
     </Card>
   );

@@ -46,83 +46,85 @@ const StateCard = (props) => {
   return (
     <Card height="full" width={{ base: "90%", lg: "full" }}>
       <CardHeader className={classes.header} height="50px">
-        <Text className={classes.headerText}>State (Region)</Text>
+        <Text className={classes.headerText}>City</Text>
       </CardHeader>
       <CardBody>
-        {!showMore
-          ? stateArr.slice(0, 2).map((data) => {
-              let stateName = Object.keys(data).toString();
-              let curValue = data[stateName];
-              return (
-                <li key={stateName}>
-                  <Text>{stateName}</Text>
-                  <Stack
-                    direction={"row"}
-                    justifyContent={"space-around"}
-                    alignItems={"center"}
-                  >
-                    <Progress
-                      colorScheme="teal"
-                      className={classes.progressBar}
-                      size="lg"
-                      width={"90%"}
-                      borderRadius={7}
-                      border={"1px solid #0f0f0e"}
-                      id={stateName}
-                      value={curValue}
-                    />
-                    <Text>{curValue.toFixed(0)}%</Text>
-                  </Stack>
-                </li>
-              );
-            })
-          : stateArr.map((data) => {
-              let stateName = Object.keys(data).toString();
-              let curValue = data[stateName];
-              return (
-                <li key={stateName}>
-                  <Text>{stateName}</Text>
-                  <Stack
-                    direction={"row"}
-                    justifyContent={"space-around"}
-                    alignItems={"center"}
-                  >
-                    <Progress
-                      colorScheme="teal"
-                      className={classes.progressBar}
-                      size="lg"
-                      width={"90%"}
-                      borderRadius={7}
-                      border={"1px solid #0f0f0e"}
-                      id={stateName}
-                      value={curValue}
-                    />
-                    <Text>{curValue.toFixed(0)}%</Text>
-                  </Stack>
-                </li>
-              );
-            })}
-            {stateArr.length > 2 && ( 
-               <Button 
-                 onClick={handleClick} 
-                 mt={4} 
-                 variant="link" 
-                 colorScheme="blue" 
-               > 
-                 {showMore ? "View Less" : "View More"} 
-               </Button> 
-             )} 
-          
-         ) : ( 
-           <Text 
-             display={"flex"} 
-             justifyContent={"center"} 
-             alignItems={"center"} 
-             className={classes.text} 
-           > 
-             No clicks yet 
-           </Text> 
-         )}
+        {stateArr.length > 0 ? (
+          <>
+            {!showMore
+              ? stateArr.slice(0, 2).map((data) => {
+                  let stateName = Object.keys(data).toString();
+                  let curValue = data[stateName];
+                  return (
+                    <li key={stateName}>
+                      <Text>{stateName}</Text>
+                      <Stack
+                        direction={"row"}
+                        justifyContent={"space-around"}
+                        alignItems={"center"}
+                      >
+                        <Progress
+                          colorScheme="teal"
+                          className={classes.progressBar}
+                          size="lg"
+                          width={"90%"}
+                          borderRadius={7}
+                          border={"1px solid #0f0f0e"}
+                          id={stateName}
+                          value={curValue}
+                        />
+                        <Text>{curValue.toFixed(0)}%</Text>
+                      </Stack>
+                    </li>
+                  );
+                })
+              : stateArr.map((data) => {
+                  let stateName = Object.keys(data).toString();
+                  let curValue = data[stateName];
+                  return (
+                    <li key={stateName}>
+                      <Text>{stateName}</Text>
+                      <Stack
+                        direction={"row"}
+                        justifyContent={"space-around"}
+                        alignItems={"center"}
+                      >
+                        <Progress
+                          colorScheme="teal"
+                          className={classes.progressBar}
+                          size="lg"
+                          width={"90%"}
+                          borderRadius={7}
+                          border={"1px solid #0f0f0e"}
+                          id={stateName}
+                          value={curValue}
+                        />
+                        <Text>{curValue.toFixed(0)}%</Text>
+                      </Stack>
+                    </li>
+                  );
+                })}
+            {stateArr.length > 2 && (
+              <Button
+                onClick={handleClick}
+                mt={4}
+                variant="link"
+                colorScheme="blue"
+              >
+                {showMore ? "View Less" : "View More"}
+              </Button>
+            )}
+          </>
+        ) : (
+          <Text
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            className={classes.text}
+          >
+            No clicks yet
+          </Text>
+        )}
       </CardBody>
     </Card>
   );

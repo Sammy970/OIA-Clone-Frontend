@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./CityCard.css";
+import classes from "./ACard.module.css";
 import {
   Button,
   Card,
@@ -44,7 +44,7 @@ const StateCard = (props) => {
   }
 
   return (
-    <Card height="full" width={{ base: "90%", lg: "full" }}>
+    <Card height="full" width="full">
       <CardHeader className={classes.header} height="50px">
         <Text className={classes.headerText}>State</Text>
       </CardHeader>

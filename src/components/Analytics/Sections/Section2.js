@@ -50,14 +50,14 @@ const Section2 = (props) => {
     setApiCall(!apiCall);
   };
 
-  // if (apiData !== "") {
-  //   console.log(apiData);
-  // }
+  if (apiData !== "") {
+    console.log(apiData.osName);
+  }
 
   return (
     <section className={classes.section2}>
       <Stack
-        direction={"column"}
+        direction={"row"}
         justifyContent={"center"}
         alignItems={"center"}
         mb={10}
@@ -73,7 +73,7 @@ const Section2 = (props) => {
         }}
         gap={6}
       >
-        <GridItem >
+        <GridItem>
           <CityCard cityData={apiData.city} totalClicks={apiData.clicks} />
         </GridItem>
         <GridItem>

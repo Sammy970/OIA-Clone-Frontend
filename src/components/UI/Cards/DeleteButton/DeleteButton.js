@@ -10,12 +10,14 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 
 const DeleteButton = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isConfirm, setIsConfirm] = useState(false);
   const [apiData, setApiData] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   // From user extracting email
   const { user } = useAuth0();
@@ -26,7 +28,23 @@ const DeleteButton = (props) => {
   const deleteHandler = () => {
     // console.log(props.code);
     setIsConfirm(true);
+    setShowToast(true);
   };
+
+  const toast = useToast();
+  useEffect(() => {
+    if (showToast) {
+      toast({
+        title: "Deleted Successfully",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+        size: "xl",
+      });
+      setShowToast(false);
+    }
+  }, [showToast, toast]);
 
   useEffect(() => {
     const url = "https://oia-second-backend.vercel.app/api/deleteUserLinks";

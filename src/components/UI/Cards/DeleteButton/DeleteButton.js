@@ -29,8 +29,8 @@ const DeleteButton = (props) => {
   };
 
   useEffect(() => {
-    // const url = "https://oia-second-backend.vercel.app/api/deleteUserLinks";
-    const url = "http://localhost:3001/api/deleteUserLinks";
+    const url = "https://oia-second-backend.vercel.app/api/deleteUserLinks";
+    // const url = "http://localhost:3001/api/deleteUserLinks";
     const bodyContent = {
       email: email,
       code: code,

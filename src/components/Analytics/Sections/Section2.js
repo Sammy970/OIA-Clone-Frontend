@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AnalyticsCard from "../AnalyticsCard/AnalyticsCard";
-import { Grid, GridItem, Stack } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import CityCard from "../CityAndStateCard/CityCard";
 import classes from "./Section2.module.css";
 import StateCard from "../CityAndStateCard/StateCard";
@@ -57,14 +57,60 @@ const Section2 = (props) => {
 
   return (
     <section className={classes.section2}>
-      <Stack
-        direction={"row"}
-        justifyContent={"center"}
-        alignItems={"center"}
+      <Grid
+        templateColumns={{
+          base: "1fr",
+          sm: "repeat(2, 1fr)",
+          lg: "repeat(4, 1fr)",
+        }}
+        gap={6}
         mb={10}
       >
-        <AnalyticsCard clicks={apiData.clicks} onCall={apiRecall} />
-      </Stack>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <AnalyticsCard
+            clicks={apiData.clicks}
+            onCall={apiRecall}
+            text={"Total Clicks"}
+          />
+        </GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <AnalyticsCard
+            topCity={apiData.city}
+            totalClicks={apiData.clicks}
+            text={"Top City"}
+          />
+        </GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <AnalyticsCard
+            topState={apiData.state}
+            totalClicks={apiData.clicks}
+            text={"Top State"}
+          />
+        </GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <AnalyticsCard
+            topDevice={apiData.osName}
+            totalClicks={apiData.clicks}
+            text={"Top Device"}
+          />
+        </GridItem>
+      </Grid>
 
       <Grid
         templateColumns={{
@@ -74,19 +120,35 @@ const Section2 = (props) => {
         }}
         gap={6}
       >
-        <GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           <CityCard cityData={apiData.city} totalClicks={apiData.clicks} />
         </GridItem>
-        <GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           <StateCard stateData={apiData.state} totalClicks={apiData.clicks} />
         </GridItem>
-        <GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           <CountryCard
             countryData={apiData.country}
             totalClicks={apiData.clicks}
           />
         </GridItem>
-        <GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           <OsCard osName={apiData.osName} />
         </GridItem>
       </Grid>

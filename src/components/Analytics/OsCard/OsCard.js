@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./OsCard.module.css";
-import { Card, CardBody, Text } from "@chakra-ui/react";
+import { Card, CardBody, Container, Text } from "@chakra-ui/react";
 import { PieChart, Pie, Cell, Legend } from "recharts";
 
 const OsCard = (props) => {
@@ -23,38 +23,42 @@ const OsCard = (props) => {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   return (
-    <Card width={"full"} height={"full"}>
+    <Card width={{ sm: "full", base: "90%" }} height={"full"}>
       <CardBody justifyContent={"center"}>
         <Text className={classes.headerText}>Devices</Text>
         {data.length > 0 ? (
-          <PieChart width={300} height={160}>
-            <Pie
-              data={data}
-              // cx={10}
-              cy={78}
-              innerRadius={44}
-              outerRadius={70}
-              fill="#8884d8"
-              paddingAngle={5}
-              dataKey="value"
-            >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Legend
-              layout="vertical"
-              align="left"
-              verticalAlign="bottom"
-              formatter={(value, entry) =>
-                // console.log(entry.payload)
-                `${entry.payload.name} - ${entry.payload.percent * 100} %`
-              } // Customize the legend label
-            />
-          </PieChart>
+          <Container width={300} paddingLeft={"6px"}>
+            <PieChart width={290} height={160} margin={20}>
+              <Pie
+                data={data}
+                // cx={10}
+                cy={78}
+                innerRadius={44}
+                outerRadius={70}
+                fill="#8884d8"
+                paddingAngle={5}
+                dataKey="value"
+              >
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Legend
+                layout="vertical"
+                align="left"
+                verticalAlign="bottom"
+                formatter={(value, entry) =>
+                  // console.log(entry.payload)
+                  `${entry.payload.name} - ${(
+                    entry.payload.percent * 100
+                  ).toFixed(0)} %`
+                } // Customize the legend label
+              />
+            </PieChart>
+          </Container>
         ) : (
           <Text className={classes.text}>No Clicks yet</Text>
         )}

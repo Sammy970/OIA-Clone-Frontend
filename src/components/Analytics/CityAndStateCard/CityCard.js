@@ -44,7 +44,7 @@ const CityCard = (props) => {
   }
 
   return (
-    <Card height="full" width="full">
+    <Card height="full" width={{ sm: "full", base: "90%" }}>
       <CardHeader className={classes.header} height="50px">
         <Text className={classes.headerText}>City</Text>
       </CardHeader>

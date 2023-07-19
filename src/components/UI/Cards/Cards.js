@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, Stack, Image, Text, useToast } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Stack,
+  Image,
+  Text,
+  useToast,
+  Button,
+} from "@chakra-ui/react";
 import classes from "./Card.module.css";
 
 import ShowButton from "./ShowButton/ShowButton";
 import EditButton from "./EditButton/EditButton";
 import { useNavigate } from "react-router-dom";
+import DeleteButton from "./DeleteButton/DeleteButton";
 
 const Cards = (props) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -40,7 +49,7 @@ const Cards = (props) => {
 
   return (
     <Card
-      width={{ base: "90%", sm: "300px" }}
+      width={{ base: "90%", sm: "90%" }}
       // max-height={"220px"}
       height={{ base: "full", sm: "220px" }}
       className={classes.card1}
@@ -70,10 +79,11 @@ const Cards = (props) => {
                   code={props.code}
                   data={props.data}
                 />
+                <DeleteButton code={props.code} />
               </Stack>
-              <button id={props.code} onClick={analyticsHandler}>
+              <Button width={"full"} id={props.code} onClick={analyticsHandler}>
                 Analytics
-              </button>
+              </Button>
             </Stack>
             <Image
               src={props.image}
@@ -84,7 +94,12 @@ const Cards = (props) => {
               border={"2px solid black"}
             />
           </Stack>
-          <Text noOfLines={2} height={{ base: "", sm: "48px" }}>
+          <Text
+            noOfLines={2}
+            fontSize={"17px"}
+            fontFamily={"circular-std-medium"}
+            height={{ base: "", sm: "48px" }}
+          >
             {props.title}
           </Text>
         </Stack>

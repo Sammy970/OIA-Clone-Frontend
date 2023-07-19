@@ -47,7 +47,7 @@ const Section3 = () => {
         templateColumns={{
           base: "1fr",
           md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
+          lg: "repeat(2, 1fr)",
         }}
         align={"center"}
         gap={7}

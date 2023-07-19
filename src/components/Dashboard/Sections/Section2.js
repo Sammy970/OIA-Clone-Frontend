@@ -116,38 +116,11 @@ const Section2 = () => {
       modifiedUrl = "https://" + modifiedUrl;
     }
 
-    const urlParts = modifiedUrl.split("://");
-    const protocol = urlParts[0];
-    let domain = urlParts[1];
-
-    if (!domain.startsWith("www.")) {
-      domain = "www." + domain;
-    }
-
-    // Check if domain has at least one dot (.) character at the right position
-    if (!/\.[^.\s]+\.[^.\s]+$/.test(domain)) {
-      console.log("Invalid URL");
-      toast({
-        title: "Invalid URL",
-        description: "Please enter a valid URL.",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-        size: "xl",
-      });
-      setIsSubmit(false);
-      setInputValid(false);
-      return; // Add this line to stop execution after displaying the toast message
-    } else {
-      modifiedUrl = protocol + "://" + domain;
-
-      setApiUrl(
-        `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
-      );
-      setIsSubmit(true);
-      setInputValid(false);
-    }
+    setApiUrl(
+      `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
+    );
+    setIsSubmit(true);
+    setInputValid(false);
   };
 
   // Display a success toast when showToast is true

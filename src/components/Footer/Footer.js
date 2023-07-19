@@ -1,11 +1,25 @@
 import React from "react";
 import classes from "./Footer.module.css";
-import { Stack, Text, Divider } from "@chakra-ui/react";
+import { Stack, Text, Divider, Button } from "@chakra-ui/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+
+  const navigate = useNavigate();
+
+  const dashboardHandler = () => {
+    if (isAuthenticated) {
+      navigate("./dashboard");
+    } else {
+      loginWithRedirect();
+    }
+  };
+
   return (
     <>
       <section className={classes.footer}>
@@ -17,9 +31,12 @@ const Footer = () => {
                 Get Access to our service for free!
               </Text>
             </Stack>
-            <button>Try for Free</button>
+            <Button onClick={dashboardHandler}>
+              {isAuthenticated ? "Go to Dashboard" : " Try for Free"}
+            </Button>
           </Stack>
         </section>
+
         <Divider />
         <section className={classes.footer2}>
           <Stack direction={"column"}>

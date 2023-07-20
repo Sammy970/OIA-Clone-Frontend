@@ -15,8 +15,8 @@ const Section2 = (props) => {
   const code = props.code;
 
   useEffect(() => {
-    // const url = "https://oia-second-backend.vercel.app/api/analyticsData";
-    const url = "http://localhost:3001/api/analyticsData";
+    const url = "https://oia-second-backend.vercel.app/api/analyticsData";
+    // const url = "http://localhost:3001/api/analyticsData";
     const bodyContent = {
       code: code,
     };

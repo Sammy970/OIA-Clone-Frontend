@@ -6,6 +6,7 @@ import classes from "./Section2.module.css";
 import StateCard from "../CityAndStateCard/StateCard";
 import CountryCard from "../CityAndStateCard/CountryCard";
 import OsCard from "../OsCard/OsCard";
+import ClickAnalysisCard from "../ClickAnalysisCard/ClickAnalysisCard";
 
 const Section2 = (props) => {
   const [apiData, setApiData] = useState({});
@@ -14,8 +15,8 @@ const Section2 = (props) => {
   const code = props.code;
 
   useEffect(() => {
-    const url = "https://oia-second-backend.vercel.app/api/analyticsData";
-    // const url = "http://localhost:3001/api/analyticsData";
+    // const url = "https://oia-second-backend.vercel.app/api/analyticsData";
+    const url = "http://localhost:3001/api/analyticsData";
     const bodyContent = {
       code: code,
     };
@@ -51,9 +52,9 @@ const Section2 = (props) => {
     setApiCall(!apiCall);
   };
 
-  // if (apiData !== "") {
-  //   console.log(apiData.osName);
-  // }
+  if (apiData !== "") {
+    console.log(apiData);
+  }
 
   return (
     <section className={classes.section2}>
@@ -150,6 +151,14 @@ const Section2 = (props) => {
           alignItems={"center"}
         >
           <OsCard osName={apiData.osName} />
+        </GridItem>
+        <GridItem
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          colSpan={{ base: "1", md: "2" }}
+        >
+          <ClickAnalysisCard whenData={apiData.when} />
         </GridItem>
       </Grid>
     </section>

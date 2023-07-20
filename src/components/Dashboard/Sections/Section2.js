@@ -117,7 +117,7 @@ const Section2 = () => {
     }
 
     setApiUrl(
-      `https://oia.vercel.app/generate?link=${modifiedUrl}&email=${email}`
+      `http://localhost:3003/generate?link=${modifiedUrl}&email=${email}`
     );
     setIsSubmit(true);
     setInputValid(false);

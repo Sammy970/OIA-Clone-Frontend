@@ -157,7 +157,7 @@ const AnalyticsCard = (props) => {
       height="150px"
       width={{ sm: "full", base: "90%" }}
       background={bgcolor}
-      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      boxShadow={{ base: "5px 5px 0px black", sm: "5px 5px 0px black" }}
       border={"2px solid black"}
     >
       <CardBody>

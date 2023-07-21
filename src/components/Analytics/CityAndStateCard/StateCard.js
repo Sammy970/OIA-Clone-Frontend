@@ -47,7 +47,7 @@ const StateCard = (props) => {
     <Card
       height="full"
       width={{ sm: "full", base: "90%" }}
-      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      boxShadow={{ base: "5px 5px 0px black", sm: "5px 5px 0px black" }}
       border={"2px solid black"}
     >
       <CardHeader className={classes.header} height="50px">

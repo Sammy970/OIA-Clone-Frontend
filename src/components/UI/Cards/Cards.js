@@ -53,7 +53,7 @@ const Cards = (props) => {
       // max-height={"220px"}
       height={{ base: "full", sm: "220px" }}
       className={classes.card1}
-      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      boxShadow={{ base: "5px 5px 0px black", sm: "5px 5px 0px black" }}
       border={"2px solid black"}
     >
       <CardBody>

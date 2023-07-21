@@ -26,7 +26,7 @@ const OsCard = (props) => {
     <Card
       width={{ sm: "full", base: "90%" }}
       height={"full"}
-      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      boxShadow={{ base: "5px 5px 0px black", sm: "5px 5px 0px black" }}
       border={"2px solid black"}
     >
       <CardBody justifyContent={"center"}>

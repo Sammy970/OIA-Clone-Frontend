@@ -55,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
 }
 
 .navbar .action img {
@@ -63,10 +63,17 @@
 }
 
 .navbar .action button {
-  background-color: #0f0f02;
-  padding: 10px 20px 10px 20px;
-  border-radius: 20px;
-  color: #ffffff;
+  border: 2px solid black;
+  padding: 9px 21px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #0f0f0e;
+  font-family: circular-std-medium;
+}
+
+.navbar .action button:hover {
+  background-color: #0f0f0e;
+  color: white;
 }
 
 .navbar .ham {
@@ -112,11 +119,17 @@
 }
 
 .actions .user button {
-  background-color: #ffc91f;
-  padding: 10px 20px 10px 20px;
-  border-radius: 10px;
+  border: 2px solid black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
   color: #0f0f0e;
-  font-weight: 500;
+  font-family: circular-std-medium;
+}
+
+.actions .user button:hover {
+  background-color: #0f0f0e;
+  color: white;
 }
 
 @media (max-width: 865px) {

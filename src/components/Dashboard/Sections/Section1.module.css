@@ -22,6 +22,12 @@
   /* font-family: "Signika Negative", sans-serif; */
 }
 
+.headText {
+  font-size: 34px;
+  color: #0f0f0e;
+  font-family: circular-std-light;
+}
+
 @media (max-width: 425px) {
   .section1 h3 {
     text-align: left;

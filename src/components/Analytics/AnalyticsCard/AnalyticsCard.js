@@ -140,15 +140,21 @@ const AnalyticsCard = (props) => {
   }
 
   return (
-    <Card height="150px" width={{ sm: "full", base: "90%" }}>
+    <Card
+      height="150px"
+      width={{ sm: "full", base: "90%" }}
+      background={"#FF5733"}
+    >
       <CardBody>
         <Text
           position="absolute"
           bottom="14"
           right="1"
           left="5"
-          fontSize={"19px"}
+          fontSize={"20px"}
+          fontWeight={600}
           fontFamily="circular-std-light"
+          color={"#0f0f0e"}
         >
           {props.text}
         </Text>
@@ -158,7 +164,7 @@ const AnalyticsCard = (props) => {
           fontSize={`${selectMode === "clicks" ? "40px" : "24px"}`}
           color={"#0f0f0e"}
           // whiteSpace="pre-line" // Add this line
-          fontFamily="circular-std-medium"
+          fontFamily="circular-std-bold"
         >
           {data}
         </Text>
@@ -166,7 +172,7 @@ const AnalyticsCard = (props) => {
           <FontAwesomeIcon
             icon={iconData}
             size="2xl"
-            style={{ color: "#ffd13a" }}
+            style={{ color: "black" }}
           />
         </Text>
         {selectMode === "clicks" && (
@@ -175,7 +181,7 @@ const AnalyticsCard = (props) => {
             position="absolute"
             bottom="3.5"
             right="3"
-            bg={"#ffd13a"}
+            bg={"white"}
             onClick={props.onCall}
           >
             <FontAwesomeIcon icon={faArrowsRotate} />

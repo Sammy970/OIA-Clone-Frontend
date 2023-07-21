@@ -43,7 +43,7 @@ const Section1 = () => {
   return (
     <section className={classes.section1}>
       <h3>
-        {greet}, <br />
+        <span className={classes.headText}>{greet},</span> <br />
         {name}
       </h3>
     </section>

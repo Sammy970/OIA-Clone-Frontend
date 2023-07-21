@@ -36,6 +36,7 @@ import LoginButton from "../UI/LoginButton";
 import LogoutButton from "../UI/LogoutButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -117,18 +118,8 @@ const Navbar = () => {
               className={classes.user}
             />
           )}
-          <button
-            ref={btnRef}
-            onClick={onOpen}
-            className={classes.hamburgerBtn}
-          >
-            <img
-              src="https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg"
-              alt=""
-              width={50}
-              className={classes.menuIcon}
-            />
-          </button>
+
+          <HamburgerIcon className={classes.menuIcon} w={10} h={10} color={"black"} onClick={onOpen} />
           <Drawer
             isOpen={isOpen}
             placement="right"

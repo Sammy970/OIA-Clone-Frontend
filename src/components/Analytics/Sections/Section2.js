@@ -52,9 +52,9 @@ const Section2 = (props) => {
     setApiCall(!apiCall);
   };
 
-  if (apiData !== "") {
-    console.log(apiData);
-  }
+  // if (apiData !== "") {
+  //   console.log(apiData);
+  // }
 
   return (
     <section className={classes.section2}>

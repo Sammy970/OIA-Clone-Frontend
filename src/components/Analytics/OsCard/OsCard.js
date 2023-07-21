@@ -23,7 +23,10 @@ const OsCard = (props) => {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   return (
-    <Card width={{ sm: "full", base: "90%" }} height={"full"}>
+    <Card
+      width={{ sm: "full", base: "90%" }}
+      height={"full"}
+    >
       <CardBody justifyContent={"center"}>
         <Text className={classes.headerText}>Devices</Text>
         {data.length > 0 ? (

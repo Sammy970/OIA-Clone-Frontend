@@ -101,7 +101,10 @@ const ClickAnalysisCard = (props) => {
   };
 
   return (
-    <Card width={{ sm: "full", base: "90%" }} height={"full"}>
+    <Card
+      width={{ sm: "full", base: "90%" }}
+      height={"full"}
+    >
       <CardBody justifyContent={"center"} display={"flex"}>
         <Box width={{ base: "100%", sm: "100%" }}>
           <Text className={classes.headerText}>Click Analysis</Text>

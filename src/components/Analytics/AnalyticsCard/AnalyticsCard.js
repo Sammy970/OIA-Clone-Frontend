@@ -143,7 +143,7 @@ const AnalyticsCard = (props) => {
     <Card
       height="150px"
       width={{ sm: "full", base: "90%" }}
-      background={"#FF5733"}
+      background={"coral"}
     >
       <CardBody>
         <Text

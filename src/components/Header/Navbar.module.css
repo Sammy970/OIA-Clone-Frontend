@@ -10,7 +10,7 @@
 .innerNavbar {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
   /* background-color: #ffd13a; */
   padding: 10px 10px 10px 10px;
   border-radius: 10px;
@@ -149,6 +149,6 @@
     align-items: center;
   }
   .innerNavbar {
-    width: 90%;
+    width: 92%;
   }
 }

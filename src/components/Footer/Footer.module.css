@@ -36,12 +36,13 @@
   color: white;
   font-family: circular-std-light;
   font-size: 23px;
+  text-align: center;
 }
 
 .footer1 button {
   background-color: #ffc91f;
   padding: 10px 10px;
-  width: 16%;
+  width: 20%;
   border-radius: 8px;
   color: #0f0f02;
   font-size: 19px;

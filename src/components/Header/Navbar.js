@@ -71,7 +71,9 @@ const Navbar = () => {
               width={34}
             />
             <Link to="/">
-              <h2>link-कर</h2>
+              <h2>
+                link-<span className={classes.websiteName}>कर</span>
+              </h2>
             </Link>
           </div>
           <div className={classes.links}>
@@ -119,7 +121,13 @@ const Navbar = () => {
             />
           )}
 
-          <HamburgerIcon className={classes.menuIcon} w={10} h={10} color={"black"} onClick={onOpen} />
+          <HamburgerIcon
+            className={classes.menuIcon}
+            w={10}
+            h={10}
+            color={"black"}
+            onClick={onOpen}
+          />
           <Drawer
             isOpen={isOpen}
             placement="right"

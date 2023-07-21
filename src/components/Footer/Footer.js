@@ -24,7 +24,7 @@ const Footer = () => {
     <>
       <section className={classes.footer}>
         <section className={classes.footer1}>
-          <Stack gap={10} className={classes.stack1}>
+          <Stack gap={{ base: 7, sm: 10 }} className={classes.stack1}>
             <Stack direction={"column"}>
               <Text className={classes.headText}>Ready to get Started?</Text>
               <Text className={classes.subText}>
@@ -36,7 +36,6 @@ const Footer = () => {
             </Button>
           </Stack>
         </section>
-
         <Divider />
         <section className={classes.footer2}>
           <Stack direction={"column"}>

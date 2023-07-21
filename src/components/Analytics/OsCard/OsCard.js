@@ -28,11 +28,11 @@ const OsCard = (props) => {
         <Text className={classes.headerText}>Devices</Text>
         {data.length > 0 ? (
           <Container width={300} paddingLeft={"6px"}>
-            <PieChart width={290} height={200} margin={20}>
+            <PieChart width={290} height={230} margin={20}>
               <Pie
                 data={data}
                 // cx={10}
-                // cy={78}
+                cy={78}
                 innerRadius={30}
                 outerRadius={60}
                 fill="#8884d8"

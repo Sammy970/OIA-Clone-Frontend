@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./ClickAnalysisCard.module.css";
 import { Box, Card, CardBody, Text } from "@chakra-ui/react";
 
@@ -18,10 +18,12 @@ const getChartData = (data) => {
     for (const month in data[year]) {
       if (month !== "clicks") {
         for (const day in data[year][month]) {
-          chartData.push({
-            date: `${day.slice(1)}-${month}-${year.slice(1)}`,
-            clicks: data[year][month][day].clicks,
-          });
+          if (day !== "clicks") {
+            chartData.push({
+              date: `${year.slice(1)}-${month}-${day.slice(1)}`,
+              clicks: data[year][month][day].clicks,
+            });
+          }
         }
       }
     }
@@ -47,22 +49,77 @@ const formatDate = (dateStr) => {
     // Add the rest of the month names here...
   };
   const month = monthNames[monthKey];
-  const formattedDate = `${day}-${month}-${year}`;
+  const formattedDate = `${year}-${month}-${day}`;
   return formattedDate;
 };
 
-const TestComp = (props) => {
+const formatDateForChart = (dateStr) => {
+  const [year, month, day] = dateStr.split("-");
+  return `${year}-${month}-${day}`;
+};
+
+const ClickAnalysisCard = (props) => {
   const whenData = props.whenData;
-  // console.log(whenData);
   const chartData = getChartData(whenData);
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  const filterData = () => {
+    if (!startDate || !endDate) {
+      return chartData;
+    } else {
+      const formattedStartDate = formatDateForChart(startDate);
+      const formattedEndDate = formatDateForChart(endDate);
+
+      const filteredData = chartData.filter((data) => {
+        let [year, month, day] = data.date.split("-");
+        if (month.length === 2) {
+          month = month.replace("m", 0);
+        } else if (month.length === 3) {
+          month = month.replace("m", "");
+        }
+
+        let newDate = `${year}-${month}-${day}`;
+        const date = new Date(newDate);
+
+        return (
+          date >= new Date(formattedStartDate) &&
+          date <= new Date(formattedEndDate)
+        );
+      });
+      return filteredData;
+    }
+  };
+
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+  };
+
+  const handleEndDateChange = (date) => {
+    setEndDate(date);
+  };
 
   return (
     <Card width={{ sm: "full", base: "90%" }} height={"full"}>
       <CardBody justifyContent={"center"} display={"flex"}>
         <Box width={{ base: "100%", sm: "100%" }}>
           <Text className={classes.headerText}>Click Analysis</Text>
+          <Box mt={4}>
+            <label>Start Date:</label>
+            <input
+              type="date"
+              onChange={(e) => handleStartDateChange(e.target.value)}
+            />
+
+            <label>End Date:</label>
+            <input
+              type="date"
+              onChange={(e) => handleEndDateChange(e.target.value)}
+            />
+          </Box>
           <ResponsiveContainer width="100%" height={160}>
-            <AreaChart data={chartData}>
+            <AreaChart data={filterData()}>
               <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#319795" stopOpacity={0.8} />
@@ -93,4 +150,4 @@ const TestComp = (props) => {
   );
 };
 
-export default TestComp;
+export default ClickAnalysisCard;

@@ -4,7 +4,12 @@ import { Card, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 
 const DisplayCard = (props) => {
   return (
-    <Card maxW="full" className={classes.card1}>
+    <Card
+      maxW="full"
+      className={classes.card1}
+      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      border={"2px solid black"}
+    >
       <CardBody>
         <Stack direction={"row"} justifyContent={"space-between"}>
           <Stack direction={"column"} width={"full"} className={classes.text}>

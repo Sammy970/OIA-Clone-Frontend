@@ -26,6 +26,19 @@ const AnalyticsCard = (props) => {
 
   let data;
   let iconData;
+  // Coral, Salmon, #FD7C6E, #F08080
+
+  let bgcolor;
+
+  if (selectMode === "clicks") {
+    bgcolor = "#80C8A1";
+  } else if (selectMode === "topCity") {
+    bgcolor = "#80C8A1";
+  } else if (selectMode === "topState") {
+    bgcolor = "#80C8A1";
+  } else if (selectMode === "topDevice") {
+    bgcolor = "#80C8A1";
+  }
 
   if (selectMode === "topCity") {
     let cityData = props.topCity;
@@ -143,7 +156,9 @@ const AnalyticsCard = (props) => {
     <Card
       height="150px"
       width={{ sm: "full", base: "90%" }}
-      background={"coral"}
+      background={bgcolor}
+      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      border={"2px solid black"}
     >
       <CardBody>
         <Text

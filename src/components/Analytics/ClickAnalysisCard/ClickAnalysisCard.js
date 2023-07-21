@@ -104,6 +104,8 @@ const ClickAnalysisCard = (props) => {
     <Card
       width={{ sm: "full", base: "90%" }}
       height={"full"}
+      boxShadow={{ base: "", sm: "5px 5px 0px black" }}
+      border={"2px solid black"}
     >
       <CardBody justifyContent={"center"} display={"flex"}>
         <Box width={{ base: "100%", sm: "100%" }}>
@@ -125,8 +127,8 @@ const ClickAnalysisCard = (props) => {
             <AreaChart data={filterData()}>
               <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#319795" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#319795" stopOpacity={0} />
+                  <stop offset="60%" stopColor="#80C8A1" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#80C8A1" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="colorClicks" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -141,7 +143,7 @@ const ClickAnalysisCard = (props) => {
               <Area
                 type="monotone"
                 dataKey="clicks"
-                stroke="#319795"
+                stroke="#80C8A1"
                 fillOpacity={1}
                 fill="url(#colorUv)"
               />

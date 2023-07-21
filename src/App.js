@@ -1,4 +1,4 @@
-import "./App.css";
+import classes from "./App.module.css";
 import Analytics from "./components/Analytics/Analytics";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FrontPage from "./components/FrontPage";
@@ -7,7 +7,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className={classes.App}>
       <BrowserRouter>
         <Navbar />
         <Routes>

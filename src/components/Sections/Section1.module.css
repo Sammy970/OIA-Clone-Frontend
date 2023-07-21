@@ -7,13 +7,14 @@
   align-content: center;
   flex-direction: column;
   padding-top: 20px;
+  padding-bottom: 130px;
 }
 
 .section1 h3 {
   /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
-  font-size: 45px;
+  font-size: 50px;
   line-height: 60px;
   text-align: center;
   color: #0f0f0f;
@@ -31,6 +32,10 @@
 }
 
 @media (max-width: 425px) {
+
+  .section1 {
+    padding-bottom: 70px;
+  }
   .section1 h3 {
     text-align: left;
     font-size: 40px;

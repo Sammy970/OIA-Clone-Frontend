@@ -1,15 +1,21 @@
 .section4 {
-  margin-top: 50px;
-  padding-bottom: 40px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .section4 .title {
-  margin-bottom: 1rem;
-  text-align: left;
-  font-size: 36px;
-  font-weight: 600;
+  text-align: center;
+  font-size: 50px;
   color: #0f0f0f;
   font-family: circular-std-bold;
+  padding-bottom: 30px;
+}
+
+.section4 .title .tagLine {
+  font-family: circular-std-light;
+  font-size: 35px;
+  font-weight: 500;
+  color: rgb(23, 23, 23);
 }
 
 .section4 .card2 {
@@ -21,4 +27,11 @@
   color: #0f0f0e;
   /* font-size: 20px; */
   font-family: circular-std-bold;
+}
+
+@media (max-width: 435px) {
+  .section4 .title .tagLine {
+    font-size: 26px;
+    font-family: circular-std-medium;
+  }
 }

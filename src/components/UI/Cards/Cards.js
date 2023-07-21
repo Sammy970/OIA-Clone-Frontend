@@ -49,7 +49,7 @@ const Cards = (props) => {
 
   return (
     <Card
-      width={{ base: "90%", sm: "90%" }}
+      width={{ base: "full", sm: "90%" }}
       // max-height={"220px"}
       height={{ base: "full", sm: "220px" }}
       className={classes.card1}

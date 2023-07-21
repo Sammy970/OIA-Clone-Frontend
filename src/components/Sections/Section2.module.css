@@ -1,12 +1,35 @@
+/* Add this to your existing CSS file */
 .section2 {
-  padding-top: 50px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  position: relative;
+  z-index: 1; /* Set z-index to 1 to bring the content above the global background */
+}
+
+.section2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  transform: skewY(-7deg);
+  z-index: -1; /* Set z-index to -1 to place the skewed background behind the content */
 }
 
 .section2 .title {
-  margin-bottom: 1rem;
-  text-align: left;
-  font-size: 36px;
-  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 50px;
+  /* font-weight: 600; */
   color: #0f0f0f;
   font-family: circular-std-bold;
+}
+
+@media (max-width: 425px) {
+  .section2::before {
+    transform: skewY(0deg);
+  }
 }

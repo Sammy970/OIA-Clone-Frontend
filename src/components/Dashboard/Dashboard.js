@@ -16,11 +16,13 @@ const Dashboard = () => {
   return (
     <>
       {isAuthenticated ? (
-        <Container maxW={"1010px"} mt={10}>
-          <Section1 />
-          <Section2 />
-          <Section3 />
-        </Container>
+        <>
+          <Container maxW={"1400px"} mt={10}>
+            <Section1 />
+            <Section2 />
+            <Section3 />
+          </Container>
+        </>
       ) : isLoading || isAuthenticated ? (
         <Container maxW={"1010px"} mt={10}>
           <Section1 />

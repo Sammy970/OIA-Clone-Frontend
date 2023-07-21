@@ -48,6 +48,7 @@ const Section3 = () => {
           base: "1fr",
           md: "repeat(2, 1fr)",
           lg: "repeat(2, 1fr)",
+          xl: "repeat(3, 1fr)",
         }}
         align={"center"}
         gap={7}

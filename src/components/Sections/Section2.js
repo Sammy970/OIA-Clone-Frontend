@@ -53,58 +53,58 @@ const Section2 = () => {
 
   return (
     <section className={classes.section2}>
-      <div className={classes.title}>Features</div>
-      <Container maxW={"2xl"}>
-        <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-          {cardData.map((card, index) => (
-            <GridItem key={index}>
-              <motion.div
-                style={{
-                  zIndex: centeredCard === index ? 2 : 1,
-                  position: "relative",
-                }}
-                animate={{
-                  x: centeredCard === index ? card.x : 0,
-                  y: centeredCard === index ? card.y : 0, // Change y value to -50%
-                  scale: centeredCard === index ? 1.3 : 0.9,
-                }}
-                initial={{ scale: 0.88 }}
-                transition={{ type: "tween" }}
-                onClick={() => handleCardClick(index)}
-              >
-                <Card height="200px" background={card.background}>
-                  <CardBody padding={"15px"}>
-                    {centeredCard !== index && (
-                      <Text
-                        position="absolute"
-                        bottom="4"
-                        left="3"
-                        right="3"
-                        fontSize={{ base: "22.9px", sm: "26px" }}
-                        color={
-                          card.background === "#0F0F0F" ? "#FFFFFF" : "#000000"
-                        }
-                        whiteSpace="pre-line"
-                        fontFamily="circular-std-medium"
-                      >
-                        {card.title}
-                      </Text>
-                    )}
-                    {centeredCard === index && (
-                      <Text
-                        color={card.color}
-                        fontSize={{ base: "14.3", sm: "19" }}
-                        fontFamily={"circular-std-light"}
-                      >
-                        {card.content}
-                      </Text>
-                    )}
-                  </CardBody>
-                </Card>
-              </motion.div>
-            </GridItem>
-          ))}
-        </Grid>
+      <Container maxW={"900px"}>
+        <div className={classes.title}>Features</div>
+        <Container maxW={"2xl"}>
+          <Grid templateColumns="repeat(2, 1fr)" gap={3}>
+            {cardData.map((card, index) => (
+              <GridItem key={index}>
+                <motion.div
+                  style={{
+                    zIndex: centeredCard === index ? 2 : 1,
+                    position: "relative",
+                  }}
+                  animate={{
+                    x: centeredCard === index ? card.x : 0,
+                    y: centeredCard === index ? card.y : 0, // Change y value to -50%
+                    scale: centeredCard === index ? 1.3 : 0.9,
+                  }}
+                  initial={{ scale: 0.88 }}
+                  transition={{ type: "tween" }}
+                  onClick={() => handleCardClick(index)}
+                >
+                  <Card height="200px" background={"#0F0F0F"}>
+                    <CardBody padding={"15px"}>
+                      {centeredCard !== index && (
+                        <Text
+                          position="absolute"
+                          bottom="4"
+                          left="3"
+                          right="3"
+                          fontSize={{ base: "22.9px", sm: "26px" }}
+                          color={"#FFFFFF"}
+                          whiteSpace="pre-line"
+                          fontFamily="circular-std-medium"
+                        >
+                          {card.title}
+                        </Text>
+                      )}
+                      {centeredCard === index && (
+                        <Text
+                          color={"#FFFFFF"}
+                          fontSize={{ base: "14.3", sm: "19" }}
+                          fontFamily={"circular-std-light"}
+                        >
+                          {card.content}
+                        </Text>
+                      )}
+                    </CardBody>
+                  </Card>
+                </motion.div>
+              </GridItem>
+            ))}
+          </Grid>
+        </Container>
       </Container>
     </section>
   );

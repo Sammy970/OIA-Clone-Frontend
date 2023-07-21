@@ -21,9 +21,10 @@ const Section4 = () => {
         gap={{ base: 8, sm: "" }}
         display={"flex"}
         justifyContent={"center"}
+        alignItems={"center"}
         flexDirection={{ base: "column", sm: "row" }}
       >
-        <GridItem justifyContent={"center"} w={"320px"}>
+        <GridItem w={"320px"}>
           <Stack align="center" className={classes.card1}>
             {/* <Image
                 src="https://avatars.githubusercontent.com/u/70690987?v=4"

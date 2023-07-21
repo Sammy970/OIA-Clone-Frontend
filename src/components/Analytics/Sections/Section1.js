@@ -13,7 +13,7 @@ const Section1 = (props) => {
         <Stack direction={"row"} alignItems={"center"} gap={5}>
           <h3>"{props.code}"</h3>
           <Link to={`https://oia.vercel.app/${props.code}`} target="_blank">
-            <Button bg={"coral"} color={"#0f0f0e"}>
+            <Button bg={"rgb(128, 200, 161)"} color={"#0f0f0e"}>
               <ExternalLinkIcon />
             </Button>
           </Link>

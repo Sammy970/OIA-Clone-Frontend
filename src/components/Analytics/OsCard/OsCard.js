@@ -36,10 +36,10 @@ const OsCard = (props) => {
             <PieChart width={290} height={230} margin={20}>
               <Pie
                 data={data}
-                // cx={10}
+                cx={54}
                 cy={78}
-                innerRadius={30}
-                outerRadius={60}
+                innerRadius={40}
+                outerRadius={70}
                 fill="#8884d8"
                 paddingAngle={5}
                 dataKey="value"
@@ -53,8 +53,7 @@ const OsCard = (props) => {
               </Pie>
               <Legend
                 layout="vertical"
-                align="center"
-                verticalAlign="bottom"
+                align="left"
                 formatter={(value, entry) =>
                   `${entry.payload.name} - ${(
                     entry.payload.percent * 100

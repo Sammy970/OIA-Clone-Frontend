@@ -110,7 +110,13 @@ const ClickAnalysisCard = (props) => {
       <CardBody justifyContent={"center"} display={"flex"}>
         <Box width={{ base: "100%", sm: "100%" }}>
           <Text className={classes.headerText}>Click Analysis</Text>
-          <Box mt={4}>
+          <Box
+            mt={4}
+            display={"flex"}
+            flexDirection={{ base: "column", md: "row" }}
+            mb={{ base: "3" }}
+            gap={{ base: "0.5" }}
+          >
             <label>Start Date:</label>
             <input
               type="date"

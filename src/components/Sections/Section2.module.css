@@ -29,6 +29,9 @@
 }
 
 @media (max-width: 425px) {
+  .section2 {
+    padding-top: 40px;
+  }
   .section2::before {
     transform: skewY(0deg);
   }

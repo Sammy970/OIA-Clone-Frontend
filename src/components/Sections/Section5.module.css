@@ -1,0 +1,56 @@
+.section5 {
+  padding-top: 20px;
+  padding-bottom: 70px;
+}
+
+.section5 h1 {
+  font-family: circular-std-bold;
+  font-size: 50px;
+  color: #0f0f0e;
+  text-align: center;
+}
+
+.section5 h2 {
+  font-family: circular-std-medium;
+  font-size: 25px;
+  color: #0f0f0e;
+  text-align: center;
+}
+
+.section5 button {
+  margin-top: 20px;
+  background-color: #0f0f0e;
+  color: #ffffff;
+  font-size: 18px;
+  border: 2px solid #f5f5f5;
+  border-radius: 7px;
+  transition: 0.6s;
+  box-shadow: 4px 4px #f5f5f5;
+  font-family: "circular-std-medium";
+}
+
+.section5 button a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.section5 button:hover {
+  background-color: #1b1b19;
+  color: #ffffff;
+}
+
+.section5 button:active {
+  transform: scale(0.8);
+  transition: 0.4s;
+}
+
+@media (max-width: 425px) {
+  .section5 h1 {
+    font-size: 35px;
+  }
+
+  .section5 h2 {
+    font-size: 23px;
+  }
+}

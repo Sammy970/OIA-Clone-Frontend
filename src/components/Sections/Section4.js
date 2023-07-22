@@ -30,13 +30,7 @@ const Section4 = () => {
           flexDirection={{ base: "column", sm: "row" }}
         >
           <GridItem w={"320px"}>
-            <Stack align="center" className={classes.card1}>
-              {/* <Image
-                src="https://avatars.githubusercontent.com/u/70690987?v=4"
-                alt="Green double couch with wooden legs"
-                borderRadius="lg"
-              /> */}
-
+            <Stack align="center" className={classes.card}>
               <Avatar
                 // size="4xl"
                 width={200}
@@ -53,7 +47,7 @@ const Section4 = () => {
                 alignItems={"center"}
                 justifyContent={"center"}
               >
-                <Heading size="md" className={classes.text1}>
+                <Heading size="md" className={classes.text}>
                   Samyak Jain [Co-Founder]
                 </Heading>
                 <Divider />
@@ -63,38 +57,37 @@ const Section4 = () => {
                       href="https://www.linkedin.com/in/samyak-jain-3a6639172/"
                       alt="link to Samyak Jain's LinkedIn"
                     >
-                      LinkedIn
+                      <Stack direction={"row"} gap={1}>
+                        <h1>LinkedIn</h1>
+                        <Image
+                          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                          width={5}
+                          ml={2}
+                        />
+                      </Stack>
                     </a>
-                    <Image
-                      src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                      width={5}
-                      ml={2}
-                    />
                   </Button>
                   <Button align={"center"} variant="solid">
                     <a
                       href="https://github.com/Sammy970"
                       alt="link to Samyak Jain's GitHub"
                     >
-                      GitHub
+                      <Stack direction={"row"} gap={1}>
+                        <h1>GitHub</h1>
+                        <Image
+                          src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
+                          width={5}
+                          ml={2}
+                        />
+                      </Stack>
                     </a>
-                    <Image
-                      src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-                      width={5}
-                      ml={2}
-                    />
                   </Button>
                 </Stack>
               </Stack>
             </Stack>
           </GridItem>
           <GridItem justifyContent={"center"} w={"320px"}>
-            <Stack align="center" className={classes.card1}>
-              {/* <Image
-                src="https://avatars.githubusercontent.com/u/96584784?v=4"
-                borderRadius="lg"
-              /> */}
-
+            <Stack align="center" className={classes.card}>
               <Avatar
                 // size="4xl"
                 width={200}
@@ -110,7 +103,7 @@ const Section4 = () => {
                 justifyContent={"center"}
                 spacing="3"
               >
-                <Heading size="md" className={classes.text1}>
+                <Heading size="md" className={classes.text}>
                   Rutuj Saraf [Co-Founder]
                 </Heading>
                 <Divider />
@@ -120,26 +113,30 @@ const Section4 = () => {
                       href="https://www.linkedin.com/in/rutuj-saraf-597994228/"
                       alt="link to Samyak Jain's LinkedIn"
                     >
-                      LinkedIn
+                      <Stack direction={"row"} gap={1}>
+                        <h1>LinkedIn</h1>
+                        <Image
+                          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                          width={5}
+                          ml={2}
+                        />
+                      </Stack>
                     </a>
-                    <Image
-                      src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                      width={5}
-                      ml={2}
-                    />
                   </Button>
                   <Button align={"center"} variant="solid">
                     <a
                       href="https://github.com/Rutujsaraf09"
                       alt="link to Samyak Jain's GitHub"
                     >
-                      GitHub
+                      <Stack direction={"row"} gap={1}>
+                        <h1>GitHub</h1>
+                        <Image
+                          src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
+                          width={5}
+                          ml={2}
+                        />
+                      </Stack>
                     </a>
-                    <Image
-                      src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-                      width={5}
-                      ml={2}
-                    />
                   </Button>
                 </Stack>
               </Stack>

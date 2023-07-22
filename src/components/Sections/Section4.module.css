@@ -3,6 +3,25 @@
   padding-bottom: 70px;
 }
 
+.section4 .card button {
+  padding: 20px 10px;
+  /* margin: 10px; */
+  background-color: transparent;
+  border: 2px solid #0f0f0e;
+  font-family: "circular-std-light";
+  color: #0f0f0e;
+  transition: 0.6s;
+}
+
+.section4 .card button a {
+  padding: 10px 10px;
+}
+
+.section4 .card button:active {
+  transform: scale(0.8);
+  transition: 0.4s;
+}
+
 .section4 .title {
   text-align: center;
   font-size: 50px;
@@ -18,14 +37,8 @@
   color: rgb(23, 23, 23);
 }
 
-.section4 .card2 {
-  background-color: #ffffff;
-}
-
-.text1,
-.text2 {
+.text {
   color: #0f0f0e;
-  /* font-size: 20px; */
   font-family: circular-std-bold;
 }
 

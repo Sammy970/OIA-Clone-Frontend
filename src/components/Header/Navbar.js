@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./Navbar.module.css";
 
+import logo from "./logo.svg";
+
 // Importing for ChakraUI-React
 import {
   Drawer,
@@ -65,15 +67,13 @@ const Navbar = () => {
       <nav className={classes.innerNavbar}>
         <div className={classes.logoAndLinks}>
           <div className={classes.image}>
-            <img
-              src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png"
-              alt=""
-              width={34}
-            />
             <Link to="/">
-              <h2>
-                link-<span className={classes.websiteName}>कर</span>
-              </h2>
+              <img
+                // src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png"
+                src={logo}
+                alt=""
+                width={"160px"}
+              />
             </Link>
           </div>
           <div className={classes.links}>

@@ -57,11 +57,11 @@ const Section4 = () => {
                       href="https://www.linkedin.com/in/samyak-jain-3a6639172/"
                       alt="link to Samyak Jain's LinkedIn"
                     >
-                      <Stack direction={"row"} gap={1}>
+                      <Stack direction={"row"} gap={1} alignItems={"center"}>
                         <h1>LinkedIn</h1>
                         <Image
-                          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                          width={5}
+                          src="https://cdn-icons-png.flaticon.com/512/4138/4138173.png"
+                          width={7}
                           ml={2}
                         />
                       </Stack>
@@ -72,11 +72,11 @@ const Section4 = () => {
                       href="https://github.com/Sammy970"
                       alt="link to Samyak Jain's GitHub"
                     >
-                      <Stack direction={"row"} gap={1}>
+                      <Stack direction={"row"} gap={1} alignItems={"center"}>
                         <h1>GitHub</h1>
                         <Image
                           src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-                          width={5}
+                          width={6}
                           ml={2}
                         />
                       </Stack>
@@ -113,11 +113,11 @@ const Section4 = () => {
                       href="https://www.linkedin.com/in/rutuj-saraf-597994228/"
                       alt="link to Samyak Jain's LinkedIn"
                     >
-                      <Stack direction={"row"} gap={1}>
+                      <Stack direction={"row"} gap={1} alignItems={"center"}>
                         <h1>LinkedIn</h1>
                         <Image
-                          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                          width={5}
+                          src="https://cdn-icons-png.flaticon.com/512/4138/4138173.png"
+                          width={7}
                           ml={2}
                         />
                       </Stack>
@@ -128,11 +128,11 @@ const Section4 = () => {
                       href="https://github.com/Rutujsaraf09"
                       alt="link to Samyak Jain's GitHub"
                     >
-                      <Stack direction={"row"} gap={1}>
+                      <Stack direction={"row"} gap={1} alignItems={"center"}>
                         <h1>GitHub</h1>
                         <Image
                           src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-                          width={5}
+                          width={6}
                           ml={2}
                         />
                       </Stack>
